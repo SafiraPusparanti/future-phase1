@@ -7,16 +7,18 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="java.util.Date"%>
-<nav class="blue-grey darken-4">
-    <div class="nav-wrapper">
-        <a href="#" class="brand-logo center">POS SYSTEM</a>
-        <ul class="left">
-            <li><a href="#">Role: username</a></li>
-            <li><a href="#">Date: <%=new Date()%></a></li>
-        </ul>
-        <ul class="right">
-            <li><a href="#">Logout</a></li>
-        </ul>
+<nav>
+    <h3 href="#" class="text-center text-white">POS SYSTEM</h3><br>
+    <div class="row">
+        <div class="col">
+            <a class="text-white">Role: username</a><br>
+            <a class="text-white">Date: <%=new Date()%></a>
+        </div>
+        <div class="col">
+            <a href="#">
+                <img class="float-right" border="0" alt="logout" src="../assets/img/logout.png" width="50" height="50">
+            </a>
+        </div>
     </div>
 </nav>
 <%--<!DOCTYPE html>--%>

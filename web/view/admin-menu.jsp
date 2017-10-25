@@ -9,22 +9,31 @@
 <html>
 <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="../assets/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../assets/css/header.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../assets/css/layout.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="../assets/js/materialize.min.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
 
     <title>Admin Menu</title>
 </head>
-<body class="blue-grey darken-4">
+<body>
     <%@ include file="/view/header.jsp"%>
     <div class="row">
-    </div>
-    <div class="row">
-        <div class="col s4 white-text center-align">Product</div>
-        <div class="col s4 white-text center-align">User</div>
-        <div class="col s4 white-text center-align">Ledger</div>
+        <div class="col text-center">
+            <a href="#">
+                <img border="0" alt="items" src="../assets/img/items.png" width="250" height="250">
+            </a>
+        </div>
+        <div class="col text-center">
+            <a href="#">
+                <img border="0" alt="users" src="../assets/img/users.png" width="250" height="250">
+            </a>
+        </div>
+        <div class="col text-center"><a href="#">
+            <img border="0" alt="ledger" src="../assets/img/ledger.png" width="250" height="250">
+        </a></div>
     </div>
 </body>
 </html>
