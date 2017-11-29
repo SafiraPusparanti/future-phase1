@@ -41,7 +41,7 @@
 
     <div id="menu-container">
         <div id="img-container">
-            <iframe src="img-produk.html" width="450" height="400"></iframe>
+            <iframe src="../view/img-produk.jsp" width="450" height="400"></iframe>
 
 
         </div>
