@@ -23,7 +23,9 @@ public class LedgerMonthly extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         try{
+            System.out.println("masuk wikli serpis");
             List<LedgerModel> monthlyLedger = ledgerService.getMonthlyLedger();
+            System.out.println("masuk monly serpis");
             System.out.println(new Gson().toJson(monthlyLedger));
             response.getWriter().write(new Gson().toJson(monthlyLedger));
         } catch (SQLException e){

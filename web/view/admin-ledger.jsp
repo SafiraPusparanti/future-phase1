@@ -29,9 +29,10 @@
         $(document).ready(function () {
 
             var table = $('#ledger').DataTable({
+                "order": [],
                 "ajax": {"url": "/admin/ledger/weekly", "dataSrc": ""},
                 "columns": [
-                    {"data": "ledgerDate"},
+                    {"data": "ledgerDate", "orderable": false},
                     {"data": "income"}
                 ]
             });

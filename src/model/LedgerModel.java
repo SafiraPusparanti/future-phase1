@@ -5,10 +5,10 @@ import java.util.Date;
 
 public class LedgerModel {
     private Timestamp timeTrans;
-    private double income;
-    private Date ledgerDate;
+    private float income;
+    private String ledgerDate;
 
-    public LedgerModel(Timestamp timeTrans, double income, Date ledgerDate) {
+    public LedgerModel(Timestamp timeTrans, float income, String ledgerDate) {
         this.timeTrans = timeTrans;
         this.income = income;
         this.ledgerDate = ledgerDate;
@@ -22,19 +22,19 @@ public class LedgerModel {
         this.timeTrans = timeTrans;
     }
 
-    public double getIncome() {
+    public float getIncome() {
         return income;
     }
 
-    public void setIncome(double income) {
+    public void setIncome(float income) {
         this.income = income;
     }
 
-    public Date getLedgerDate() {
+    public String getLedgerDate() {
         return ledgerDate;
     }
 
-    public void setLedgerDate(Date ledgerDate) {
+    public void setLedgerDate(String ledgerDate) {
         this.ledgerDate = ledgerDate;
     }
 }
