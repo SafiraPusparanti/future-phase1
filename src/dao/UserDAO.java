@@ -2,6 +2,7 @@ package dao;
 
 import model.UserModel;
 
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +61,7 @@ public class UserDAO {
         System.out.println(ps);
 
         ResultSet rs = ps.executeQuery();
-rs.next();
+        rs.next();
         return rs.getString(1);
     }
 
