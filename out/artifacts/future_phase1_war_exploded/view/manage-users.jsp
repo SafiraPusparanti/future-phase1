@@ -17,6 +17,7 @@
     <link type="text/css" rel="stylesheet" href="../assets/css/layout.css" media="screen,projection"/>
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/v/bs4/dt-1.10.16/fc-3.2.3/r-2.2.0/datatables.min.css"/>
+    <link type="text/css" rel="stylesheet" href="../assets/css/notyf.min.css">
     <%--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jqc-1.12.3/dt-1.10.16/b-1.4.2/sl-1.2.3/datatables.min.css"/>--%>
     <%--<link rel="stylesheet" type="text/css" href="../assets/Editor-1.6.5/css/editor.dataTables.css"/>--%>
 
@@ -25,6 +26,7 @@
             integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/notyf.min.js"></script>
 
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/r-2.2.0/datatables.min.js"></script>
     <%--<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jqc-1.12.3/dt-1.10.16/b-1.4.2/sl-1.2.3/datatables.min.js"></script>--%>
@@ -32,10 +34,14 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#success-delete').hide();
-            $('#fail-delete').hide();
-            $('#success-add').hide();
-            $('#fail-add').hide();
+//            $('#success-delete').hide();
+//            $('#fail-delete').hide();
+//            $('#success-add').hide();
+//            $('#fail-add').hide();
+
+            var notyf = new Notyf({
+                delay: 5000,
+            })
 
             var table = $('#kanmakan').DataTable({
 //            "processing": true,
@@ -53,13 +59,21 @@
                 ]
             });
 
-            $('#submit-add').on('click', function () {
+            $('#user-form').submit(function (e) {
+                e.preventDefault()
+
                 var name = $("#name").val();
                 var email = $("#email").val();
                 var role = $("input[name=role]:checked").val();
 
                 $.post('/admin/users/add', {name: name, email: email, role: role},
                     function () { // on success --TODO: alert if error occurs
+
+                        $('#addedModal').modal('show');
+                        $('#addedModalOk').on('click', function () {
+                            notyf.confirm(name + ' have been added to the record!');
+                        });
+
                         $("#success-add").fadeTo(2000, 500).slideUp(500, function () {
                             $("#success-add").slideUp(500);
                         });
@@ -87,6 +101,9 @@
 
                 $.post('/admin/users/delete', {deleteId: userId},
                     function () { // on success --TODO: alert if error occurs
+
+                        notyf.confirm(userId + ' have been deleted from the record.');
+
                         $("#success-delete").fadeTo(2000, 500).slideUp(500, function () {
                             $("#success-delete").slideUp(500);
                         });
@@ -107,48 +124,52 @@
     <div class="col"><br>
         <div style="margin-left: 5vw">
             <h1 class="text-center">Add User</h1><br><br><br><br>
-            <div class="alert alert-success" id="success-add">
-                <button type="button" class="close" data-dismiss="alert">x</button>
-                <strong>Success! </strong>
-                User have been added to the record.
-            </div>
+            <%--<div hidden class="alert alert-success" id="success-add">--%>
+            <%--<button type="button" class="close" data-dismiss="alert">x</button>--%>
+            <%--<strong>Success! </strong>--%>
+            <%--User have been added to the record.--%>
+            <%--</div>--%>
 
-            <div class="alert alert-danger" id="fail-add">
-                <button type="button" class="close" data-dismiss="alert">x</button>
-                <strong>Error. </strong>
-                Fail to add user to the record.
-            </div>
-            <div class="form-group">
-                <label for="name" class="text-white">Name</label>
-                <input type="text" class="form-control bg-dark" id="name" name="name" placeholder="Enter full name">
-            </div>
-            <div class="form-group">
-                <label for="email" class="text-white">Email</label>
-                <input type="email" class="form-control bg-dark" id="email" name="email" placeholder="Enter email">
-            </div>
-            <fieldset class="form-group">
-                <div class="row">
-                    <legend class="col-form-legend col-sm-2 text-white">Role</legend>
-                    <div class="col-sm-10">
-                        <div class="form-check">
-                            <label class="form-check-label text-white">
-                                <input class="form-check-input" type="radio" name="role" id="adminRadio" value="T"
-                                       checked>
-                                Admin
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label text-white">
-                                <input class="form-check-input" type="radio" name="role" id="cashierRadio"
-                                       value="F">
-                                Cashier
-                            </label>
+            <%--<div hidden class="alert alert-danger" id="fail-add">--%>
+            <%--<button type="button" class="close" data-dismiss="alert">x</button>--%>
+            <%--<strong>Error. </strong>--%>
+            <%--Fail to add user to the record.--%>
+            <%--</div>--%>
+
+            <form id="user-form">
+                <div class="form-group">
+                    <label for="name" class="text-white">Name</label>
+                    <input type="text" class="form-control bg-dark" id="name" name="name" placeholder="Enter full name"
+                           required/>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="text-white">Email</label>
+                    <input type="email" class="form-control bg-dark" id="email" name="email" placeholder="Enter email"
+                           required/>
+                </div>
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-legend col-sm-2 text-white">Role</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <label class="form-check-label text-white">
+                                    <input class="form-check-input" type="radio" name="role" id="adminRadio" value="T"
+                                           checked/>
+                                    Admin
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label text-white">
+                                    <input class="form-check-input" type="radio" name="role" id="cashierRadio"
+                                           value="F"/>
+                                    Cashier
+                                </label>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </fieldset>
-            <button type="submit" id="submit-add" value="submit" class="btn btn-secondary">Add</button>
-
+                </fieldset>
+                <button type="submit" id="submit-add" value="submit" class="btn btn-secondary">Add</button>
+            </form>
         </div>
     </div>
     <div class="col-1">
@@ -158,17 +179,17 @@
         <div style="margin-right: 5vw">
             <h1 class="text-center">Users</h1><br><br>
 
-            <div class="alert alert-success" id="success-delete">
-                <button type="button" class="close" data-dismiss="alert">x</button>
-                <strong>Success! </strong>
-                User have been deleted from the record.
-            </div>
+            <%--<div hidden class="alert alert-success" id="success-delete">--%>
+            <%--<button type="button" class="close" data-dismiss="alert">x</button>--%>
+            <%--<strong>Success! </strong>--%>
+            <%--User have been deleted from the record.--%>
+            <%--</div>--%>
 
-            <div class="alert alert-danger" id="fail-delete">
-                <button type="button" class="close" data-dismiss="alert">x</button>
-                <strong>Error. </strong>
-                Fail to delete user from the record.
-            </div>
+            <%--<div hidden class="alert alert-danger" id="fail-delete">--%>
+            <%--<button type="button" class="close" data-dismiss="alert">x</button>--%>
+            <%--<strong>Error. </strong>--%>
+            <%--Fail to delete user from the record.--%>
+            <%--</div>--%>
 
             <table id="kanmakan" class="table table-light table-bordered table-hover table-sm" width="100%">
                 <thead>
@@ -221,6 +242,27 @@
                             <button type="submit" id="submit-delete" class="btn btn-danger" value="submit"
                                     data-dismiss="modal">Delete
                             </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="addedModal" tabindex="-1" role="dialog" aria-labelledby="addedModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addedModalLabel">Success!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            User has been successfully added to the record.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="addedModalOk" class="btn btn-secondary" data-dismiss="modal">Ok</button>
                         </div>
                     </div>
                 </div>

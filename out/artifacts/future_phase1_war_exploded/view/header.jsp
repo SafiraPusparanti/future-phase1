@@ -12,7 +12,15 @@
     <div class="row">
         <div class="col">
             <a class="text-white">Role: username</a><br>
-            <a class="text-white">Date: <%=new Date()%></a>
+            <%--<a class="text-white">Date: <%=new Date()%></a>--%>
+
+
+            <a href="https://time.is/Jakarta" id="time_is_link" rel="nofollow" style="color:#ffffff"></a>
+            <span id="Jakarta_z41c" style="color:#ffffff"></span>
+            <script src="//widget.time.is/en.js"></script>
+            <script>
+                time_is_widget.init({Jakarta_z41c:{template:"DATE<br>TIME", date_format:"dayname, monthname dnum, year"}});
+            </script>
         </div>
         <div class="col">
             <a href="#">
