@@ -7,6 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="065afa91-d2d1-44a3-8453-f05c0625df0f" name="Default" comment="">
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/view/img-produk.jsp" />
+=======
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/view/img-appetizer.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/view/img-dessert.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/view/img-snack.jsp" />
+>>>>>>> Stashed changes
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/future_phase1_war_exploded/view/cashier-menu.jsp" afterPath="$PROJECT_DIR$/out/artifacts/future_phase1_war_exploded/view/cashier-menu.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/future_phase1_war_exploded/view/img-produk.jsp" afterPath="$PROJECT_DIR$/out/artifacts/future_phase1_war_exploded/view/img-produk.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/future_phase1_war_exploded/view/login.jsp" afterPath="$PROJECT_DIR$/out/artifacts/future_phase1_war_exploded/view/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/view/cashier-menu.jsp" afterPath="$PROJECT_DIR$/web/view/cashier-menu.jsp" />
+<<<<<<< Updated upstream
+=======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/future_phase1_war_exploded/WEB-INF/classes/dao/LedgerDAO.class" afterPath="$PROJECT_DIR$/out/artifacts/future_phase1_war_exploded/WEB-INF/classes/dao/LedgerDAO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/future-phase1/dao/LedgerDAO.class" afterPath="$PROJECT_DIR$/out/production/future-phase1/dao/LedgerDAO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -16,6 +31,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/LedgerModel.java" afterPath="$PROJECT_DIR$/src/model/LedgerModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/view/admin-ledger.jsp" afterPath="$PROJECT_DIR$/web/view/admin-ledger.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/view/manage-users.jsp" afterPath="$PROJECT_DIR$/web/view/manage-users.jsp" />
+>>>>>>> master
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/view/img-produk.jsp" afterPath="$PROJECT_DIR$/web/view/img-produk.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/view/login.jsp" afterPath="$PROJECT_DIR$/web/view/login.jsp" />
+>>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,6 +68,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+      <file leaf-file-name="manage-users.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/view/manage-users.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+=======
       <file leaf-file-name="UserDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dao/UserDAO.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -106,13 +134,27 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> master
+=======
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/view/login.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="359">
+              <caret line="28" column="10" lean-forward="true" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+>>>>>>> Stashed changes
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/view/login.jsp">
+=======
       <file leaf-file-name="admin-ledger.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/view/admin-ledger.jsp">
+>>>>>>> master
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="415">
               <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
@@ -121,6 +163,17 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="cashier-menu.jsp" pinned="false" current-in-tab="false">
+=======
+      <file leaf-file-name="cashier-menu.jsp" pinned="false" current-in-tab="true">
+>>>>>>> Stashed changes
+        <entry file="file://$PROJECT_DIR$/web/view/cashier-menu.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="38" column="54" lean-forward="true" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
+              <folding />
+=======
       <file leaf-file-name="LedgerDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dao/LedgerDAO.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -140,10 +193,21 @@
                 <marker date="1512317033234" expanded="true" signature="2419:2441" ph="SELECT SUM(i... ledger" />
                 <marker date="1512317033234" expanded="true" signature="2419:2728" ph="SELECT SUM(i... ledger" />
               </folding>
+>>>>>>> master
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+      <file leaf-file-name="LoginService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/service/LoginService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-294">
+              <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+              <folding>
+                <marker date="1511844244621" expanded="true" signature="1225:1298" ph="SELECT user_... user_pos" />
+=======
       <file leaf-file-name="LedgerModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/LedgerModel.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -153,11 +217,19 @@
                 <element signature="imports" expanded="true" />
                 <element signature="e#715#716#0" expanded="true" />
                 <element signature="e#748#749#0" expanded="true" />
+>>>>>>> master
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="img-produk.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/view/img-produk.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="750">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+=======
       <file leaf-file-name="LedgerYearly.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/ledger/LedgerYearly.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -175,13 +247,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
               <caret line="25" column="50" lean-forward="false" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+>>>>>>> master
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1511937132877" expanded="true" signature="748:777" ph="SELECT image... product" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+=======
+>>>>>>> Stashed changes
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -190,6 +265,7 @@
         <option value="Interface" />
         <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -232,6 +308,16 @@
         <option value="$PROJECT_DIR$/src/model/LedgerModel.java" />
         <option value="$PROJECT_DIR$/src/dao/LedgerDAO.java" />
         <option value="$PROJECT_DIR$/web/view/manage-users.jsp" />
+        <option value="$PROJECT_DIR$/src/service/LoginService.java" />
+        <option value="$PROJECT_DIR$/src/controller/user/cashier/CashierMenu.java" />
+        <option value="$PROJECT_DIR$/src/controller/login/LoginCek.java" />
+        <option value="$PROJECT_DIR$/web/view/login.jsp" />
+        <option value="$PROJECT_DIR$/web/view/img-produk.jsp" />
+        <option value="$PROJECT_DIR$/web/view/img-snack.jsp" />
+        <option value="$PROJECT_DIR$/web/view/img-drink.jsp" />
+        <option value="$PROJECT_DIR$/web/view/img-appetizer.jsp" />
+        <option value="$PROJECT_DIR$/web/view/img-dessert.jsp" />
+        <option value="$PROJECT_DIR$/web/view/cashier-menu.jsp" />
       </list>
     </option>
   </component>
@@ -270,8 +356,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+=======
       <pane id="AndroidView" />
       <pane id="Scratches" />
+>>>>>>> master
+=======
+      <pane id="AndroidView" />
+>>>>>>> Stashed changes
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -295,6 +390,9 @@
               <item name="future-phase1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+=======
               <item name="ledger" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -303,6 +401,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
+>>>>>>> master
             </path>
             <path>
               <item name="future-phase1" type="b2602c69:ProjectViewProjectNode" />
@@ -337,13 +436,6 @@
               <item name="future-phase1" type="b2602c69:ProjectViewProjectNode" />
               <item name="future-phase1" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="future-phase1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="future-phase1" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -367,8 +459,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -383,12 +476,20 @@
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="future-phase1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/postgresql-42.1.4.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$/web/WEB-INF/lib" />
     <property name="database.console.AUTO_SCROLL_FROM_SOURCE" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller.cashier" />
+      <recent name="controller.user.cashier" />
+      <recent name="service" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\future-phase1\src\controller" />
+      <recent name="D:\future-phase1\web\assets\css" />
+      <recent name="D:\future-phase1\web\view" />
       <recent name="C:\Users\Safira Pusparanti\Documents\DevTools\Safira\IdeaProjects\future-phase1\web" />
       <recent name="C:\Users\Safira Pusparanti\Documents\DevTools\Safira\IdeaProjects\future-phase1\src" />
     </key>
@@ -407,6 +508,7 @@
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.0.M26">
     <configuration name="Tomcat 9.0.0.M26" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.0.M26" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <deployment>
         <artifact name="future-phase1:war exploded">
           <settings>
@@ -423,6 +525,27 @@
       <predefined_log_file id="Tomcat Host Manager" enabled="false" />
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+<<<<<<< HEAD
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="57243" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+=======
+>>>>>>> master
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
@@ -557,6 +680,11 @@
       <workItem from="1509964429775" duration="584000" />
       <workItem from="1510153208107" duration="7000" />
       <workItem from="1510240717943" duration="28002000" />
+<<<<<<< HEAD
+      <workItem from="1511851349592" duration="383000" />
+      <workItem from="1511922447728" duration="6727000" />
+<<<<<<< Updated upstream
+=======
       <workItem from="1510459684354" duration="1834000" />
       <workItem from="1510757784085" duration="15000" />
       <workItem from="1510759287803" duration="1198000" />
@@ -569,14 +697,26 @@
       <workItem from="1512132294276" duration="22000" />
       <workItem from="1512237030674" duration="21000" />
       <workItem from="1512274886954" duration="18563000" />
+>>>>>>> master
+=======
+      <workItem from="1512528874629" duration="4335000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="57751000" />
+=======
     <option name="totallyTimeSpent" value="76160000" />
+>>>>>>> master
+=======
+    <option name="totallyTimeSpent" value="62086000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -589,8 +729,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+=======
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+>>>>>>> master
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -603,6 +747,7 @@
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -623,6 +768,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -656,10 +802,22 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> Stashed changes
     <entry file="file://$PROJECT_DIR$/web/assets/css/header.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+<<<<<<< HEAD
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/user/UserMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+=======
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -672,7 +830,17 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/controller/user/UserAdd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="50" column="33" lean-forward="true" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+=======
     <entry file="file://$PROJECT_DIR$/src/controller/user/UserAdd.java" />
+>>>>>>> master
     <entry file="file://$PROJECT_DIR$/src/model/UserModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -697,6 +865,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1320">
           <caret line="57" column="39" lean-forward="false" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+<<<<<<< HEAD
+          <folding />
+=======
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1033#1044#0" expanded="true" />
@@ -706,6 +877,7 @@
             <marker date="1512278506216" expanded="true" signature="2223:2312" ph="INSERT INTO user_pos... " />
             <marker date="1512278506216" expanded="true" signature="2867:2955" ph="{...}" />
           </folding>
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -735,14 +907,22 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/controller/user/UserMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+=======
     <entry file="file://$PROJECT_DIR$/src/controller/user/UserMenu.java" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5ff34a71-0ced-4548-827c-3516c430ead2/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+>>>>>>> master
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5ff34a71-0ced-4548-827c-3516c430ead2/console.sql" />
     <entry file="file://$PROJECT_DIR$/web/assets/js/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -750,48 +930,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/725f01b0-7cf2-40c8-baa9-6419d730b379/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/145aa7c6-ff33-491b-b1ba-1650d2df9cd9/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/caa009af-60ba-42fb-a725-2198f31a70a2/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9efa6a37-a87d-4522-9ef7-50103035820e/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/97a690dc-fc86-4833-afd3-b6c0cfb0a56e/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c9b2c0fe-50f1-44b7-880d-0e2a1f6aaa7d/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/725f01b0-7cf2-40c8-baa9-6419d730b379/console.sql" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/145aa7c6-ff33-491b-b1ba-1650d2df9cd9/console.sql" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/caa009af-60ba-42fb-a725-2198f31a70a2/console.sql" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9efa6a37-a87d-4522-9ef7-50103035820e/console.sql" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/97a690dc-fc86-4833-afd3-b6c0cfb0a56e/console.sql" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c9b2c0fe-50f1-44b7-880d-0e2a1f6aaa7d/console.sql" />
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -809,6 +953,87 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/assets/css/layout.css">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/UserModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="984">
+          <caret line="59" column="5" lean-forward="false" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding>
+            <element signature="e#1176#1177#0" expanded="false" />
+            <element signature="e#1208#1209#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5ff34a71-0ced-4548-827c-3516c430ead2/console_1.sql" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5ff34a71-0ced-4548-827c-3516c430ead2/console.sql" />
+    <entry file="file://$PROJECT_DIR$/src/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/UserServiceDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1475">
+          <caret line="63" column="28" lean-forward="false" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/user/UserDelete.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="125">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+=======
+        <state relative-caret-position="48">
+          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+>>>>>>> master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/user/UserAdd.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="150">
+          <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/user/UserMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/user/UserList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/admin-menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
         <state relative-caret-position="24">
           <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="29" />
         </state>
@@ -852,10 +1077,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/web/view/success.jsp" />
+    <entry file="file://$PROJECT_DIR$/web/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/assets/css/cashierStyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< Updated upstream
+=======
     <entry file="file://$PROJECT_DIR$/src/controller/user/UserAdd.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -870,10 +1111,63 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/web/assets/css/style.css">
+=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/user/cashier/CashierMenu.java" />
+    <entry file="file://$PROJECT_DIR$/src/controller/login/LoginMenu.java">
+>>>>>>> Stashed changes
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/cashier/CashierMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/LoginService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+          <folding>
+            <marker date="1511844244621" expanded="true" signature="1225:1298" ph="SELECT user_... user_pos" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/login/LoginCek.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="732">
+          <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< Updated upstream
+    <entry file="file://$PROJECT_DIR$/src/controller/cashier/CashierMenu.java">
+=======
     <entry file="file://$PROJECT_DIR$/src/controller/ledger/LedgerMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -949,29 +1243,99 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+>>>>>>> master
+=======
+    <entry file="file://$PROJECT_DIR$/web/view/login.jsp">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="359">
+          <caret line="28" column="10" lean-forward="true" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/service/LoginService.java">
+=======
     <entry file="file://$PROJECT_DIR$/web/view/admin-menu.jsp">
+>>>>>>> master
+=======
+    <entry file="file://$PROJECT_DIR$/web/view/img-drink.jsp">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="675">
+          <caret line="27" column="10" lean-forward="true" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+          <folding>
+            <marker date="1512532434937" expanded="true" signature="748:805" ph="SELECT image... product" />
+          </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/web/view/cashier-menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="36" column="49" lean-forward="true" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
+=======
     <entry file="file://$PROJECT_DIR$/web/view/admin-ledger.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="415">
           <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+>>>>>>> master
+=======
+    <entry file="file://$PROJECT_DIR$/web/view/img-snack.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <marker date="1512532435025" expanded="true" signature="748:805" ph="SELECT image... product" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/manage-users.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+>>>>>>> Stashed changes
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/web/view/img-dessert.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="31" column="78" lean-forward="false" selection-start-line="31" selection-start-column="78" selection-end-line="31" selection-end-column="78" />
+          <folding>
+            <marker date="1512533663037" expanded="true" signature="748:805" ph="SELECT image... product" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/img-appetizer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="31" column="78" lean-forward="false" selection-start-line="31" selection-start-column="78" selection-end-line="31" selection-end-column="78" />
+          <folding>
+            <marker date="1512533662923" expanded="true" signature="748:805" ph="SELECT image... product" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+>>>>>>> Stashed changes
+    <entry file="file://$PROJECT_DIR$/web/view/img-produk.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+<<<<<<< Updated upstream
+            <marker date="1511937132877" expanded="true" signature="748:777" ph="SELECT image... product" />
+=======
     <entry file="file://$PROJECT_DIR$/src/controller/ledger/LedgerYearly.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -1042,7 +1406,19 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+>>>>>>> master
+=======
+            <marker date="1512531688687" expanded="true" signature="748:805" ph="SELECT image... product" />
+>>>>>>> Stashed changes
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/cashier-menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="38" column="54" lean-forward="true" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
