@@ -1,0 +1,118 @@
+body {
+    background-color: #333;
+}
+
+header {
+    color: white;
+    font-family: helvetica;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 3px;
+}
+
+label {
+    font-size: 10pt;
+}
+
+.header {
+    width: 50%;
+    height: 55px;
+    float: left;
+}
+
+#logout {
+    width: 30px;
+    height: 30px;
+}
+
+#logout-txt {
+    text-align: right;
+    font-size: 10pt;
+}
+
+#header2 {
+    float: right;
+}
+
+.menu {
+    width: 50%;
+    float: left;
+}
+
+nav {
+    width: 23%;
+    height: 500px;
+    margin: 0px;
+    float: left;
+}
+
+.nav-link {
+    display: block;
+    float: left;
+    height: 80px;
+    width: 80px;
+    color: white;
+    font-family: helvetica;
+    font-size: 12pt;
+    margin: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.img-produk {
+    width: 75px;
+    height: 75px;
+    margin: 5px;
+}
+
+#menu-container {
+    float: left;
+    width: 77%;
+}
+
+#img-container {
+    height: 410px;
+}
+
+#add-container {
+    height: 20%;
+}
+
+p {
+    text-align: center;
+    font-size: 13pt;
+    font-family: helvetica;
+    color: white;
+}
+
+input[type=number] {
+    text-align: center;
+}
+
+#btn-add {
+    margin-top: 10px;
+    width: 80px;
+    height: 30px;
+    color: grey;
+    background-color: white;
+    border: 1px;
+    border-color: white;
+}
+
+iframe {
+    margin: 10px;
+    border: 0;
+}
+
+.btn-bayar {
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    color: grey;
+    background-color: white;
+    border: 1px;
+    border-color: white;
+}
