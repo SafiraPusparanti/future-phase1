@@ -58,7 +58,7 @@
                 var email = $("#email").val();
                 var role = $("input[name=role]:checked").val();
 
-                $.post('/admin/users/add', {name: name, email: email, role:role},
+                $.post('/admin/users/add', {name: name, email: email, role: role},
                     function () { // on success --TODO: alert if error occurs
                         $("#success-add").fadeTo(2000, 500).slideUp(500, function () {
                             $("#success-add").slideUp(500);
@@ -102,9 +102,10 @@
 </head>
 <body>
 <%@ include file="/view/header.jsp" %>
-<div class="container">
-    <div class="row">
-        <div class="col"><br>
+
+<div class="row">
+    <div class="col"><br>
+        <div style="margin-left: 5vw">
             <h1 class="text-center">Add User</h1><br><br><br><br>
             <div class="alert alert-success" id="success-add">
                 <button type="button" class="close" data-dismiss="alert">x</button>
@@ -117,42 +118,44 @@
                 <strong>Error. </strong>
                 Fail to add user to the record.
             </div>
-                <div class="form-group">
-                    <label for="name" class="text-white">Name</label>
-                    <input type="text" class="form-control bg-dark" id="name" name="name" placeholder="Enter full name">
-                </div>
-                <div class="form-group">
-                    <label for="email" class="text-white">Email</label>
-                    <input type="email" class="form-control bg-dark" id="email" name="email" placeholder="Enter email">
-                </div>
-                <fieldset class="form-group">
-                    <div class="row">
-                        <legend class="col-form-legend col-sm-2 text-white">Role</legend>
-                        <div class="col-sm-10">
-                            <div class="form-check">
-                                <label class="form-check-label text-white">
-                                    <input class="form-check-input" type="radio" name="role" id="adminRadio" value="T"
-                                           checked>
-                                    Admin
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <label class="form-check-label text-white">
-                                    <input class="form-check-input" type="radio" name="role" id="cashierRadio"
-                                           value="F">
-                                    Cashier
-                                </label>
-                            </div>
+            <div class="form-group">
+                <label for="name" class="text-white">Name</label>
+                <input type="text" class="form-control bg-dark" id="name" name="name" placeholder="Enter full name">
+            </div>
+            <div class="form-group">
+                <label for="email" class="text-white">Email</label>
+                <input type="email" class="form-control bg-dark" id="email" name="email" placeholder="Enter email">
+            </div>
+            <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-form-legend col-sm-2 text-white">Role</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <label class="form-check-label text-white">
+                                <input class="form-check-input" type="radio" name="role" id="adminRadio" value="T"
+                                       checked>
+                                Admin
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label text-white">
+                                <input class="form-check-input" type="radio" name="role" id="cashierRadio"
+                                       value="F">
+                                Cashier
+                            </label>
                         </div>
                     </div>
-                </fieldset>
-                <button type="submit" id="submit-add" value="submit" class="btn btn-secondary">Add</button>
+                </div>
+            </fieldset>
+            <button type="submit" id="submit-add" value="submit" class="btn btn-secondary">Add</button>
 
         </div>
-        <div class="col-1">
-            <div style="width: 50%; height: 100%; position:relative; overflow: hidden; border-right: solid 2px white"></div>
-        </div>
-        <div class="col"><br>
+    </div>
+    <div class="col-1">
+        <div style="width: 50%; height: 100%; position:relative; overflow: hidden; border-right: solid 2px white"></div>
+    </div>
+    <div class="col"><br>
+        <div style="margin-right: 5vw">
             <h1 class="text-center">Users</h1><br><br>
 
             <div class="alert alert-success" id="success-delete">
@@ -225,5 +228,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>
