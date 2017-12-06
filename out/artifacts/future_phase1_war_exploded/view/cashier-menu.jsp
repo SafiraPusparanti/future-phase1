@@ -1,4 +1,4 @@
-<%--
+<%@ page import="controller.login.LoginCek" %><%--
   Created by IntelliJ IDEA.
   User: Asus
   Date: 28/11/2017
@@ -16,7 +16,7 @@
     <h3>POS SYSTEM</h3> <br>
 
     <div class="header">
-        <label>Cashier 	: </label> <br>
+        <label>Cashier 	: <%= session.getAttribute("name")%></label> <br>
         <label>Date 	:</label> <br>
     </div>
 
@@ -32,16 +32,16 @@
 
 <div class="menu">
     <nav>
-        <a href="" class="nav-link">Snack</a>
-        <a href="" class="nav-link">Appetizer</a>
-        <a href="" class="nav-link">Main Dish</a>
-        <a href="" class="nav-link">Dessert</a>
-        <a href="" class="nav-link">Drink</a>
+        <a href="../view/img-snack.jsp" target="menu" class="nav-link">Snack</a>
+        <a href="../view/img-appetizer.jsp" target="menu" class="nav-link">Appetizer</a>
+        <a href="../view/img-produk.jsp" target="menu" class="nav-link">Main Dish</a>
+        <a href="../view/img-dessert.jsp" target="menu" class="nav-link">Dessert</a>
+        <a href="../view/img-drink.jsp" target="menu" class="nav-link">Drink</a>
     </nav>
 
     <div id="menu-container">
         <div id="img-container">
-            <iframe src="../view/img-produk.jsp" width="450" height="400"></iframe>
+            <iframe src="../view/img-produk.jsp" width="450" height="400" name="menu"></iframe>
 
 
         </div>

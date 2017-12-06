@@ -1,17 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
   User: Asus
-  Date: 29/11/2017
-  Time: 10.15
+  Date: 06/12/2017
+  Time: 11.11
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+
 <%@page import="java.sql.Connection, java.sql.DriverManager, java.sql.Statement,
                 java.sql.ResultSet, java.io.File" %>
 
@@ -29,7 +29,7 @@
 
         Statement state=c.createStatement();
 
-        String sql = "SELECT image_url FROM product WHERE category_id LIKE 'MD'";
+        String sql = "SELECT image_url FROM product WHERE category_id LIKE 'AP'";
 
         ResultSet rs=state.executeQuery(sql);
 

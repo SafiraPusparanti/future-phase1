@@ -29,7 +29,7 @@
 
         Statement state=c.createStatement();
 
-        String sql = "SELECT image_url FROM product";
+        String sql = "SELECT image_url FROM product WHERE category_id LIKE 'MD'";
 
         ResultSet rs=state.executeQuery(sql);
 

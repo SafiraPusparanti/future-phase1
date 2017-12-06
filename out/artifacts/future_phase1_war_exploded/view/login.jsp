@@ -23,6 +23,10 @@
         <input type="text" class="input" name="username" placeholder="Username"><br>
         <input type="password" class="input" name="password" placeholder="Password"> <br>
         <input type="submit" id="button" name="" value="Login">
+        <%
+            String username = request.getParameter("username");
+            session.setAttribute("name", username);
+        %>
     </form>
 
 
