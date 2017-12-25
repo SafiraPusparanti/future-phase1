@@ -4,15 +4,15 @@ public class ProductModel {
     private String productId;
     private String name;
     private int price;
-    private boolean status;
+    private boolean isAvailable;//TODO ubah jadi isAvailable
     private String categoryId;
     private String imageUrl;
 
-    public ProductModel(String productId, String name, int price, boolean status, String categoryId, String imageUrl) {
+    public ProductModel(String productId, String name, int price, boolean isAvailable, String categoryId, String imageUrl) {
         this.productId = productId;
         this.name = name;
         this.price = price;
-        this.status = status;
+        this.isAvailable = isAvailable;
         this.categoryId = categoryId;
         this.imageUrl = imageUrl;
     }
@@ -41,12 +41,12 @@ public class ProductModel {
         this.price = price;
     }
 
-    public boolean isStatus() {
-        return status;
+    public boolean getIsAvailable() {
+        return isAvailable;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setIsAvailable(boolean status) {
+        this.isAvailable = isAvailable;
     }
 
     public String getCategoryId() {

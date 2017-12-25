@@ -39,6 +39,8 @@
 
             $('#weekly-button').on('click', function () {
                 table.ajax.url('/admin/ledger/weekly').load();
+
+                $("#td_id").attr('class', 'btn btn-outline-dark btn-lg btn-block');
             });
 
             $('#monthly-button').on('click', function () {
@@ -54,23 +56,31 @@
 </head>
 <body>
 <%@ include file="/view/header.jsp" %>
-
 <div class="row">
     <div class="col-1"><br>
+        <table style="height: 100%;"
+               class="border border-top-0 border-left-0 border-bottom-0 border-white">
+            <tbody>
+            <tr>
+                <td class="align-middle text-center" style="padding: 0;">
+                    <button type="button" id="weekly-button"
+                            class="btn btn-dark btn-lg btn-block">weekly</button><br>
+                    <button type="button" id="monthly-button"
+                            class="btn btn-dark btn-lg btn-block">monthly</button><br>
+                    <button type="button" id="yearly-button"
+                            class="btn btn-dark btn-lg btn-block">yearly</button><br>
+                </td>
+            </tr>
+            </tbody>
+        </table>
 
-        <button type="button" id="weekly-button" class="btn btn-secondary">weekly</button>
-        <button type="button" id="monthly-button" class="btn btn-secondary">monthly</button>
-        <button type="button" id="yearly-button" class="btn btn-secondary">yearly</button>
 
-    </div>
-    <div class="col-1">
-        <div style="width: 50%; height: 100%; position:relative; overflow: hidden; border-right: solid 2px white"></div>
     </div>
     <div class="col"><br>
         <div class="container">
             <h1 class="text-center">Ledger</h1><br><br>
 
-            <table id="ledger" class="table table-light table-bordered table-hover table-sm"
+            <table id="ledger" class="table table-dark table-hover table-sm"
                    width="100%">
                 <thead>
                 <tr>

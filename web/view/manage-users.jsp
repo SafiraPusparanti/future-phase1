@@ -43,6 +43,7 @@
                 delay: 5000,
             })
 
+
             var table = $('#kanmakan').DataTable({
 //            "processing": true,
 //            "serverSide": true,
@@ -121,7 +122,7 @@
 <%@ include file="/view/header.jsp" %>
 
 <div class="row">
-    <div class="col"><br>
+    <div class="col-4"><br>
         <div style="margin-left: 5vw">
             <h1 class="text-center">Add User</h1><br><br><br><br>
             <%--<div hidden class="alert alert-success" id="success-add">--%>
