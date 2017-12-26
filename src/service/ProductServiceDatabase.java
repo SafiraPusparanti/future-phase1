@@ -32,8 +32,8 @@ public class ProductServiceDatabase implements ProductService {
     }
 
     @Override
-    public void editProduct(ProductModel product) throws SQLException {
-        productDAO.editProduct(product);
+    public void setImage(String productId, String imageUrl) throws SQLException {
+        productDAO.setImage(productId, imageUrl);
     }
 
     @Override

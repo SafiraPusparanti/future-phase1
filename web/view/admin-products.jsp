@@ -31,7 +31,6 @@
         $(document).ready(function () {
             $("#show-detail").hide();
             var categoryId = "AP";
-            var deleteId;
 
             var notyf = new Notyf({
                 delay: 5000,
@@ -82,11 +81,11 @@
                             }
 
                             var productImage = "";
-                            if (response[0].imageUrl == null) {
-                                productImage += '<div class="small-link"><br><br><br><a href="">No image available.</a></div>';
+                            if (response[0].imageUrl == null || response[0].imageUrl == "") {
+                                productImage += '<div class="small-link"><br><br><br><a href="#" role="button" class="setImage">No image available.</a></div>';
                             } else {
                                 productImage += '<img src="' + response[0].imageUrl + '" style="height:100px;"/><br>';
-                                productImage += '<div class="small-link"><a href="">change image</a></div>';
+                                productImage += '<div class="small-link"><a href="#" role="button" class="setImage">change image</a></div>';
                             }
                             var productDetail = '<p>' + response[0].productId + '</p>';
                             productDetail += '<p>' + response[0].name + '</p>';
@@ -125,6 +124,36 @@
                 $('#deleteModal').modal('show');
             } );
 
+            //SET IMAGE TRIGGER/MODAL
+            $('#product-image').on('click', 'a.setImage', function () {
+                $('#imageModal').modal('show');
+            } );
+
+            //IMAGE SUBMIT
+            $('#submit-image').on('click', function () {
+                var productId = table.row('.selected').data().productId;
+                var image = $('#newImage').val();
+
+                $.post('/admin/products/set-image', {productId: productId, imageUrl: image},
+                    function () { // on success --TODO: alert if error occurs
+
+                        notyf.confirm(productId + '\'s new image has been set.');
+
+                        $("#newImagePId").val("");
+                        $("#newImage").val("");
+
+                        setTimeout(function () {
+                            table.ajax.reload();
+                        }, 1000);
+
+                        setTimeout(function () {
+                            table.row(':last').select();
+                            var id = table.row(table.$('tr.selected')).data().productId;
+                            ajaxDetail(id);
+                        },2000);
+                    });
+            });
+
             //TOGGLE STATUS
             $('#show-detail').on('click', '#toggle-btn', function () {
                 var productId = table.row('.selected').data().productId;
@@ -151,9 +180,6 @@
 
                         notyf.confirm(productId + ' have been deleted from the record.');
 
-                        $("#success-delete").fadeTo(2000, 500).slideUp(500, function () {
-                            $("#success-delete").slideUp(500);
-                        });
                         setTimeout(function () {
                             table.ajax.reload();
                         }, 1000);
@@ -199,6 +225,14 @@
                             table.ajax.reload();
                             $('#show-detail').fadeOut();
                         }, 1000);
+
+
+                        setTimeout(function () {
+                            table.row(':last').select();
+                            var id = table.row(table.$('tr.selected')).data().productId;
+                            ajaxDetail(id);
+                            $('#show-detail').fadeIn();
+                        },2000);
                     });
             });
 
@@ -220,6 +254,8 @@
                 table.ajax.reload();
                 $('#show-detail').fadeOut();
             });
+
+
         });
     </script>
     <style>
@@ -250,8 +286,7 @@
                 </div>
                 <div class="form-group">
                     <label for="image" class="text-white">Image URL</label>
-                    <input type="url"  pattern="https?://.+" class="form-control bg-dark text-white" id="image" name="image" placeholder="Enter image URL"
-                           required/>
+                    <input type="url"  pattern="https?://.+" class="form-control bg-dark text-white" id="image" name="image" placeholder="Enter image URL"/>
                 </div>
                 <div class="form-group">
                     <label for="category" class="text-white">Category</label>
@@ -364,6 +399,30 @@
             </div>
             <div class="modal-footer">
                 <button type="button" id="addedModalOk" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Set Product Image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Enter image URL below:</p>
+                <input class="form-control" type="url"  pattern="https?://.+" id="newImage" name="newImage">
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="newImagePId" name="newImagePId">
+                <button type="submit" id="submit-image" class="btn btn-primary" value="submit"
+                        data-dismiss="modal">Submit
+                </button>
             </div>
         </div>
     </div>

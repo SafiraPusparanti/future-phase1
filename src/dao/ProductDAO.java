@@ -14,8 +14,6 @@ public class ProductDAO {
 
     Connection conn;
 
-
-
     public ProductDAO() {
         System.out.println("mausk produk dao");
         try {
@@ -36,7 +34,6 @@ public class ProductDAO {
         List<ProductModel> products = new ArrayList<ProductModel>();
         while (rs.next()) {
             products.add(new ProductModel(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4), rs.getString(5), rs.getString(6)));
-
         }
         return products;
     }
@@ -84,10 +81,10 @@ public class ProductDAO {
         ps.executeUpdate();
     }
 
-//    TODO IMPLEMENT
-    public void editProduct(ProductModel product) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement("DELETE FROM product where product_id = ?");
-//        ps.setString(1, productId);
+    public void setImage(String productId, String imageUrl) throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("UPDATE product SET image_url = ? where product_id = ?");
+        ps.setString(1, imageUrl);
+        ps.setString(2, productId);
         ps.executeUpdate();
     }
 

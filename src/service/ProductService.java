@@ -10,7 +10,7 @@ public interface ProductService {
     List<ProductModel> getProductsByCategory(String categoryId) throws SQLException;
     String getMaxId(String category) throws SQLException;
     void addProduct(ProductModel product) throws SQLException;
-    void editProduct(ProductModel product) throws SQLException;
+    void setImage(String productId, String imageUrl) throws SQLException;
     void deleteProduct(String productId) throws SQLException;
     void toggleStatus(String productId) throws SQLException;
 }
