@@ -7,13 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-@import url("../assets/css/bootstrap.min.css");
 <html>
 <head>
     <%--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">--%>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link type="text/css" rel="stylesheet" href="../assets/css/links.css" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css" media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="../assets/css/header.css" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../assets/css/layout.css" media="screen,projection"/>
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/v/bs4/dt-1.10.16/fc-3.2.3/r-2.2.0/datatables.min.css"/>
@@ -44,7 +43,7 @@
             })
 
 
-            var table = $('#kanmakan').DataTable({
+            var table = $('#users').DataTable({
 //            "processing": true,
 //            "serverSide": true,
                 "ajax": {"url": "/admin/users/list", "dataSrc": ""},
@@ -55,7 +54,7 @@
                     {
                         data: null,
                         className: "center",
-                        defaultContent: '<a href="" class="remove">Delete</a>'
+                        defaultContent: '<a href="" class="remove table-link">Delete</a>'
                     }
                 ]
             });
@@ -65,9 +64,10 @@
 
                 var name = $("#name").val();
                 var email = $("#email").val();
+                var password = $("#password").val();
                 var role = $("input[name=role]:checked").val();
 
-                $.post('/admin/users/add', {name: name, email: email, role: role},
+                $.post('/admin/users/add', {name: name, email: email, password: password, role: role},
                     function () { // on success --TODO: alert if error occurs
 
                         $('#addedModal').modal('show');
@@ -89,7 +89,7 @@
 
             });
 
-            $('#kanmakan').on('click', 'a.remove', function (e) {
+            $('#users').on('click', 'a.remove', function (e) {
                 e.preventDefault();
                 var id = table.row($(this).parents('tr')).data().userId;
                 $('#deleteId').val(id);
@@ -118,34 +118,69 @@
     </script>
     <title>Manage Users</title>
 </head>
+<style>
+    #users {
+        border-radius: 5px;
+        border: 3px solid rgba(255,255,255,.8);
+    }
+
+    #users>thead>tr>th {
+        border-bottom: 1px solid #000000;
+    }
+
+    .pagination li a {
+        color: #000000;
+    }
+
+    .pagination>li.active>a {
+        border: 1px solid #455a64  !important;
+        background: #455a64  !important;
+        color: #FFFFFF;
+    }
+
+    .v-white-line {
+        width: 0%;
+        height: 100%;
+        position:relative;
+        overflow: hidden;
+        border-left: 1px solid rgba(255,255,255,.8)
+    }
+
+    .ledger-type {
+        margin-top: 170px;
+        font-size: 1.3em;
+    }
+
+    .v-gray-line {
+        width: 50%;
+        height: 100%;
+        position:relative;
+        overflow: hidden;
+        border-right: 1px solid rgba(255,255,255,.25)
+    }
+</style>
 <body>
-<%@ include file="/view/header.jsp" %>
+<%@ include file="/view/admin-header.jsp" %>
 
 <div class="row">
     <div class="col-4"><br>
         <div style="margin-left: 5vw">
-            <h1 class="text-center">Add User</h1><br><br><br><br>
-            <%--<div hidden class="alert alert-success" id="success-add">--%>
-            <%--<button type="button" class="close" data-dismiss="alert">x</button>--%>
-            <%--<strong>Success! </strong>--%>
-            <%--User have been added to the record.--%>
-            <%--</div>--%>
-
-            <%--<div hidden class="alert alert-danger" id="fail-add">--%>
-            <%--<button type="button" class="close" data-dismiss="alert">x</button>--%>
-            <%--<strong>Error. </strong>--%>
-            <%--Fail to add user to the record.--%>
-            <%--</div>--%>
-
+            <h1 class="text-center">Add User</h1><br><br>
             <form id="user-form">
                 <div class="form-group">
                     <label for="name" class="text-white">Name</label>
-                    <input type="text" class="form-control bg-dark" id="name" name="name" placeholder="Enter full name"
+                    <input type="text" class="form-control bg-dark text-white" id="name" name="name" placeholder="Enter full name"
                            required/>
                 </div>
                 <div class="form-group">
                     <label for="email" class="text-white">Email</label>
-                    <input type="email" class="form-control bg-dark" id="email" name="email" placeholder="Enter email"
+                    <input type="email" class="form-control bg-dark text-white" id="email" name="email" placeholder="Enter email"
+                           required/>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="text-white">Password</label>
+                    <input type="password" class="form-control bg-dark text-white" id="password" name="password"
+                           placeholder="Enter password"
                            required/>
                 </div>
                 <fieldset class="form-group">
@@ -169,58 +204,33 @@
                         </div>
                     </div>
                 </fieldset>
-                <button type="submit" id="submit-add" value="submit" class="btn btn-secondary">Add</button>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">
+                        <button type="submit" id="submit-add" value="submit" class="btn btn-outline-light btn-block">
+                            Add
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
     <div class="col-1">
-        <div style="width: 50%; height: 100%; position:relative; overflow: hidden; border-right: solid 2px white"></div>
+        <div class="v-gray-line"></div>
     </div>
     <div class="col"><br>
         <div style="margin-right: 5vw">
             <h1 class="text-center">Users</h1><br><br>
-
-            <%--<div hidden class="alert alert-success" id="success-delete">--%>
-            <%--<button type="button" class="close" data-dismiss="alert">x</button>--%>
-            <%--<strong>Success! </strong>--%>
-            <%--User have been deleted from the record.--%>
-            <%--</div>--%>
-
-            <%--<div hidden class="alert alert-danger" id="fail-delete">--%>
-            <%--<button type="button" class="close" data-dismiss="alert">x</button>--%>
-            <%--<strong>Error. </strong>--%>
-            <%--Fail to delete user from the record.--%>
-            <%--</div>--%>
-
-            <table id="kanmakan" class="table table-light table-bordered table-hover table-sm" width="100%">
+            <table id="users" class="table-light table-hover table-sm" width="100%">
                 <thead>
-                <tr>
+                <tr style="border-bottom: 1px solid rgba(0,0,0,.75)">
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Action</th>
                 </tr>
                 </thead>
-                <%--<tbody>--%>
-                <%--<c:forEach items="${users}" var="users">--%>
-                <%--<tr>--%>
-                <%--<td><c:out value="${users.userId}"></c:out></td>--%>
-                <%--<td><c:out value="${users.name}"></c:out></td>--%>
-                <%--<td><c:out value="${users.email}"></c:out></td>--%>
-                <%--<td>Delete</td>--%>
-                <%--</tr>--%>
-                <%--</c:forEach>--%>
-                <%--</tbody>--%>
             </table>
-            <%--<form>--%>
-            <%--<div class="form-group">--%>
-            <%--<input type="text" class="form-control bg-dark" placeholder="Enter ID">--%>
-            <%--</div>--%>
-            <%--<button type="submit" class="btn btn-secondary">Search</button>--%>
-            <%--</form>--%>
-            <%--<a class="text-white">Name:</a><br>--%>
-            <%--<a class="text-white">ID:</a><br>--%>
-            <%--<a class="text-white">Email:</a>--%>
 
             <!-- Modal -->
             <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
@@ -228,7 +238,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="deleteModalLabel">Edit Record</h5>
+                            <h5 class="modal-title" id="deleteModalLabel">Delete Record</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -263,7 +273,8 @@
                             User has been successfully added to the record.
                         </div>
                         <div class="modal-footer">
-                            <button type="button" id="addedModalOk" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                            <button type="button" id="addedModalOk" class="btn btn-secondary" data-dismiss="modal">Ok
+                            </button>
                         </div>
                     </div>
                 </div>

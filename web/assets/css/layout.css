@@ -2,7 +2,13 @@ body {
     background-color: #262729;
 }
 
-h1,h2,h3,h4,h5 {
+h1 {
     color: #95989A;
+    text-shadow: 2px 2px 2px #000000;
 }
 
+.dataTables_length,
+.dataTables_filter,
+.dataTables_info {
+    color: white;
+}

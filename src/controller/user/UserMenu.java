@@ -15,7 +15,7 @@ public class UserMenu extends HttpServlet {
     UserService userService = new UserServiceDatabase();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String address = "/view/manage-users.jsp";
+        String address = "/view/admin-users.jsp";
 
         //TODO: check whether user have already logged in as admin
         request.getRequestDispatcher(address).forward(request, response);

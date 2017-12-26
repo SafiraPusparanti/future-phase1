@@ -7,12 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-@import url("../assets/css/bootstrap.min.css");
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css" media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="../assets/css/header.css" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../assets/css/layout.css" media="screen,projection"/>
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
@@ -44,13 +42,13 @@
 //                "serverSide": true,
                 "scrollY":300,
                 "scrollX":true,
-                "scroller":false,
+//                "scroller":false,
                 "ordering": false,
                 "paging": false,
                 "searching": false,
-                "lengthChange": false,
+//                "lengthChange": false,
                 "info": false,
-                "deferRender": true,
+//                "deferRender": true,
                 "ajax": {
                     "type": "GET",
                     "url": "/admin/products/list",
@@ -85,16 +83,16 @@
 
                             var productImage = "";
                             if (response[0].imageUrl == null) {
-                                productImage += '<a href="">No image available.</a>';
+                                productImage += '<div class="small-link"><br><br><br><a href="">No image available.</a></div>';
                             } else {
                                 productImage += '<img src="' + response[0].imageUrl + '" style="height:100px;"/><br>';
-                                productImage += '<a href="">Click here to change image.</a>';
+                                productImage += '<div class="small-link"><a href="">change image</a></div>';
                             }
                             var productDetail = '<p>' + response[0].productId + '</p>';
                             productDetail += '<p>' + response[0].name + '</p>';
                             productDetail += '<p>' + response[0].price + '</p>';
                             productDetail += '<p>' + status + '</p>';
-                            productDetail += '<button type="button" class="btn btn-outline-danger btn-block w-50 remove">Delete</button>';
+                            productDetail += '<button type="button" class="btn btn-outline-danger btn-block w-75 remove">Delete</button>';
 
                             $('#product-image').html(productImage);
                             $('#product-detail').html(productDetail);
@@ -205,7 +203,7 @@
             });
 
             $('.btn-group').on('click', 'button', function() {
-                $('.active').button('toggle');
+                $('.btn-group .active').button('toggle');
                 $(this).button('toggle');
 
                 if (this.id == 'appetizer-btn') {
@@ -224,10 +222,15 @@
             });
         });
     </script>
+    <style>
+        .dataTables_wrapper {
+            background-color: rgba(255,255,255,.8);
+        }
+    </style>
     <title>Manage Products</title>
 </head>
 <body>
-<%@ include file="/view/header.jsp" %>
+<%@ include file="/view/admin-header.jsp" %>
 
 <div class="row">
     <div class="col-4"><br>
@@ -261,11 +264,21 @@
                         <option value="DE">Desert</option>
                     </select>
                 </div><br>
-                <button type="submit" id="submit-add" value="submit" class="btn btn-outline-light">Add</button>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">
+                        <button type="submit" id="submit-add" value="submit" class="btn btn-outline-light btn-block">
+                            Add
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
-    <div class="col-3"><br>
+    <div class="col-1">
+        <div style="width: 80%; height: 100%; position:relative; overflow: hidden; border-right: 1px solid rgba(255,255,255,.25)"></div>
+    </div>
+    <div class="col-3 ml-0 pl-0"><br>
         <div style="margin-left: 5vw">
             <div class="btn-toolbar justify-content-center mb-sm-1 mt-lg-5" role="toolbar">
                 <div class="btn-group button-group-sm" role="group">
@@ -294,7 +307,7 @@
                 <div class="col"></div>
             </div>
             <div class="row">
-                <div class="col-4 text-white">
+                <div class="col-5 text-white">
                     <p>Product ID:</p>
                     <p>Name:</p>
                     <p>Price:</p>

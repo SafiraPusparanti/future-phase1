@@ -34,8 +34,6 @@ public class UserAdd extends HttpServlet {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        System.out.println(request.getParameter(strRole));
-        System.out.println("id number adalah " + idNo);
 
         String userId;
         if(role) {
@@ -49,7 +47,8 @@ public class UserAdd extends HttpServlet {
             UserModel user = new UserModel( userId,
                     request.getParameter("name"),//id, name, email, pass, logtime, role
                     request.getParameter("email"),
-                    "afabag32fa",role,
+                    request.getParameter("password"),
+                    role,
                     null);
             System.out.println(request.getParameter("name"));
             System.out.println(user.getName());
