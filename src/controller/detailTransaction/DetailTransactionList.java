@@ -1,9 +1,9 @@
-package controller.ledger;
+package controller.detailTransaction;
 
 import com.google.gson.Gson;
-import model.LedgerModel;
-import service.LedgerService;
-import service.LedgerServiceDatabase;
+import model.DetailTransactionModel;
+import service.DetailTransactionService;
+import service.DetailTransactionServiceDatabase;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,18 +14,19 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/admin/ledger/yearly")
-public class LedgerYearly extends HttpServlet {
-    LedgerService ledgerService = new LedgerServiceDatabase();
+@WebServlet("/admin/detail-transactions/list")
+public class DetailTransactionList extends HttpServlet{
+    DetailTransactionService detailTransactionService = new DetailTransactionServiceDatabase();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
+        String transactionId = request.getParameter("transactionId");
         try{
-            List<LedgerModel> yearlyLedger = ledgerService.getYearlyLedger();
+            List<DetailTransactionModel> detailTransactionList = detailTransactionService.getDetailTransactionList(transactionId);
 
-            response.getWriter().write(new Gson().toJson(yearlyLedger));
+            response.getWriter().write(new Gson().toJson(detailTransactionList));
         } catch (SQLException e){
             System.out.println(e.getMessage());
         }

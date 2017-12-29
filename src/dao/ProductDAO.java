@@ -10,12 +10,11 @@ public class ProductDAO {
     public static final String database = "org.postgresql.Driver";
     public static final String url = "jdbc:postgresql://localhost:5432/safirapusparanti?currentSchema=kanmakan";
     public static final String username = "postgres";
-    public static final String password = "dbpass";
+    public static final String password = "dbfira";
 
     Connection conn;
 
     public ProductDAO() {
-        System.out.println("mausk produk dao");
         try {
             Class.forName(database);
             conn = DriverManager.getConnection(url, username, password);
@@ -27,13 +26,12 @@ public class ProductDAO {
     }
 
     public List<ProductModel> getProductsByCategory(String categoryId) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement("SELECT product_id, name, price, status, category_id, image_url FROM product WHERE category_id = ?");
+        PreparedStatement ps = conn.prepareStatement("SELECT product_id, name, price, is_available, category_id, image_url FROM product WHERE category_id = ?");
         ps.setString(1, categoryId);
         ResultSet rs = ps.executeQuery();
-        System.out.println("masuk list prouck");
         List<ProductModel> products = new ArrayList<ProductModel>();
         while (rs.next()) {
-            products.add(new ProductModel(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4), rs.getString(5), rs.getString(6)));
+            products.add(new ProductModel(rs.getString(1), rs.getString(2), rs.getFloat(3), rs.getBoolean(4), rs.getString(5), rs.getString(6)));
         }
         return products;
     }
@@ -46,7 +44,7 @@ public class ProductDAO {
 
         ProductModel output;
         if (rs.next()) {
-            output = new ProductModel(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4), rs.getString(5), rs.getString(6));
+            output = new ProductModel(rs.getString(1), rs.getString(2), rs.getFloat(3), rs.getBoolean(4), rs.getString(5), rs.getString(6));
         } else {
             output = null;
         }
@@ -64,10 +62,10 @@ public class ProductDAO {
     }
 
     public void addProduct(ProductModel product) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO product (product_id, name, price, status, category_id, image_url) VALUES (?,?,?,?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO product (product_id, name, price, is_available, category_id, image_url) VALUES (?,?,?,?,?,?)");
         ps.setString(1, product.getProductId());
         ps.setString(2, product.getName());
-        ps.setInt(3, product.getPrice());
+        ps.setFloat(3, product.getPrice());
         ps.setBoolean(4, product.getIsAvailable());
         ps.setString(5, product.getCategoryId());
         ps.setString(6, product.getImageUrl());
@@ -89,7 +87,7 @@ public class ProductDAO {
     }
 
     public void toggleStatus(String productId) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement("UPDATE product SET status = NOT status where product_id = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE product SET is_available = NOT is_available where product_id = ?");
         ps.setString(1, productId);
         ps.executeUpdate();
     }

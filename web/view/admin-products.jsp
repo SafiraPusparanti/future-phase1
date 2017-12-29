@@ -269,18 +269,18 @@
 <%@ include file="/view/admin-header.jsp" %>
 
 <div class="row">
-    <div class="col-4"><br>
+    <div class="col-4 mt-5">
         <div style="margin-left: 5vw">
-            <h1 class="text-center">Add Product</h1><br><br>
+            <h1 class="text-center mb-5">Add Product</h1>
 
             <form id="product-form" class="text-white">
                 <div class="form-group">
-                    <label for="name" class="text-white">Name</label>
+                    <label for="name" class="text-white">Name*</label>
                     <input type="text" class="form-control bg-dark text-white" id="name" name="name" placeholder="Enter name"
                            required/>
                 </div>
                 <div class="form-group">
-                    <label for="price" class="text-white">Price</label>
+                    <label for="price" class="text-white">Price*</label>
                     <input type="number" min="5000" class="form-control bg-dark text-white" id="price" name="price" placeholder="Enter price"
                            required/>
                 </div>
@@ -289,7 +289,7 @@
                     <input type="url"  pattern="https?://.+" class="form-control bg-dark text-white" id="image" name="image" placeholder="Enter image URL"/>
                 </div>
                 <div class="form-group">
-                    <label for="category" class="text-white">Category</label>
+                    <label for="category" class="text-white">Category*</label>
                     <select class="form-control bg-dark text-white" id="category" name="category" required>
                         <option value="" class="text-muted" selected disabled>Select category</option>
                         <option value="AP">Appetizer</option>
@@ -347,9 +347,9 @@
                     <p>Name:</p>
                     <p>Price:</p>
                     <p>Status:</p>
-                    <button type="button" class="btn btn-outline-primary btn-block" id="toggle-btn">Toggle Status</button>
+                    <button type="button" class="btn btn-outline-light btn-block" id="toggle-btn">Toggle Status</button>
                 </div>
-                <div class="col text-white" id="product-detail">
+                <div class="col text-white text-truncate" id="product-detail">
                     <p>Detail goes here..</p>
                 </div>
             </div>
@@ -374,8 +374,8 @@
             </div>
             <div class="modal-footer">
                 <input type="hidden" id="deleteId" name="deleteId">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" id="submit-delete" class="btn btn-danger" value="submit"
+                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+                <button type="submit" id="submit-delete" class="btn btn-outline-danger" value="submit"
                         data-dismiss="modal">Delete
                 </button>
             </div>
@@ -398,7 +398,7 @@
                 Product has been successfully added to the record.
             </div>
             <div class="modal-footer">
-                <button type="button" id="addedModalOk" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                <button type="button" id="addedModalOk" class="btn btn-outline-dark" data-dismiss="modal">Ok</button>
             </div>
         </div>
     </div>
@@ -420,7 +420,7 @@
             </div>
             <div class="modal-footer">
                 <input type="hidden" id="newImagePId" name="newImagePId">
-                <button type="submit" id="submit-image" class="btn btn-primary" value="submit"
+                <button type="submit" id="submit-image" class="btn btn-outline-primary" value="submit"
                         data-dismiss="modal">Submit
                 </button>
             </div>

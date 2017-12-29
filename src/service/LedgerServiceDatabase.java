@@ -11,16 +11,40 @@ public class LedgerServiceDatabase implements LedgerService {
 
     @Override
     public List<LedgerModel> getWeeklyLedger() throws SQLException{
-        return ledgerDAO.getWeeklyLedger();
+        List<LedgerModel> weeklyLedger = ledgerDAO.getWeeklyLedger();
+
+        String currencyWrapper = "";
+        for(int i = 0; i < weeklyLedger.size(); i++) {
+            currencyWrapper = String.format("Rp %,.2f", weeklyLedger.get(i).getIncome());
+            weeklyLedger.get(i).setCurrencyWrapper(currencyWrapper);
+        }
+
+        return weeklyLedger;
     }
 
     @Override
     public List<LedgerModel> getMonthlyLedger() throws SQLException {
-        return ledgerDAO.getMonthlyLedger();
+        List<LedgerModel> monthlyLedger =  ledgerDAO.getMonthlyLedger();
+
+        String currencyWrapper = "";
+        for(int i = 0; i < monthlyLedger.size(); i++) {
+            currencyWrapper = String.format("Rp %,.2f", monthlyLedger.get(i).getIncome());
+            monthlyLedger.get(i).setCurrencyWrapper(currencyWrapper);
+        }
+
+        return monthlyLedger;
     }
 
     @Override
     public List<LedgerModel> getYearlyLedger() throws SQLException {
-        return ledgerDAO.getYearlyLedger();
+        List<LedgerModel> yearlyLedger = ledgerDAO.getYearlyLedger();
+
+        String currencyWrapper = "";
+        for(int i = 0; i < yearlyLedger.size(); i++) {
+            currencyWrapper = String.format("Rp %,.2f", yearlyLedger.get(i).getIncome());
+            yearlyLedger.get(i).setCurrencyWrapper(currencyWrapper);
+        }
+
+        return yearlyLedger;
     }
 }

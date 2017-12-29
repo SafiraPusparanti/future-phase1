@@ -21,7 +21,6 @@ public class ProductAdd extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String category = request.getParameter("categoryId");
-        System.out.println(category);
         int idNo = 0;
 
         try {
@@ -33,7 +32,7 @@ public class ProductAdd extends HttpServlet {
         }
 
         String productId = category + String.format("%03d", ++idNo);
-        int price = Integer.parseInt(request.getParameter("price"));
+        float price = Float.parseFloat(request.getParameter("price"));
         try{
             ProductModel product = new ProductModel( productId,
                     request.getParameter("name"),

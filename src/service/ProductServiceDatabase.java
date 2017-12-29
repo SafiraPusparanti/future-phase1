@@ -17,7 +17,6 @@ public class ProductServiceDatabase implements ProductService {
 
     @Override
     public List<ProductModel> getProductsByCategory(String categoryId) throws SQLException {
-        System.out.println("masuk service db");
         return productDAO.getProductsByCategory(categoryId);
     }
 

@@ -58,14 +58,18 @@
                     links += "<a href=\"/admin/products\" class=\"active\">Products</a>";
                     links += "<a href=\"/admin/ledger\">Ledger</a>";
                     links += "<a href=\"/admin/users\">Users</a>";
-                } else if (pageName.equals("admin-ledger.jsp")) {
+                } else if (pageName.equals("admin-ledger.jsp") || pageName.equals("admin-transactions.jsp")) {
                     links += "<a href=\"/admin/products\">Products</a>";
                     links += "<a href=\"/admin/ledger\" class=\"active\">Ledger</a>";
                     links += "<a href=\"/admin/users\">Users</a>";
-                } else {
+                } else if (pageName.equals("admin-users.jsp")) {
                     links += "<a href=\"/admin/products\">Products</a>";
                     links += "<a href=\"/admin/ledger\">Ledger</a>";
                     links += "<a href=\"/admin/users\" class=\"active\">Users</a>";
+                } else {
+                    links += "<a href=\"/admin/products\">Products</a>";
+                    links += "<a href=\"/admin/ledger\">Ledger</a>";
+                    links += "<a href=\"/admin/users\">Users</a>";
                 }
                 out.print(links);
             %>

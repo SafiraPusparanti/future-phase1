@@ -1,22 +1,18 @@
 package model;
 
-import java.util.Date;
-
 public class UserModel {
     private String userId;
     private String name;
     private String email;
     private String password;
     private boolean role;
-    private Date logtime;
 
-    public UserModel(String userId, String name, String email, String password, boolean role, Date logtime) {
+    public UserModel(String userId, String name, String email, String password, boolean role) {
         this.userId = userId;
         this.name = name;
         this.email = email;
         this.password = password;
         this.role = role;
-        this.logtime = logtime;
     }
 
     public String getUserId() {
@@ -57,13 +53,5 @@ public class UserModel {
 
     public void setRole(boolean role) {
         this.role = role;
-    }
-
-    public Date getLogtime() {
-        return logtime;
-    }
-
-    public void setLogtime(Date logtime) {
-        this.logtime = logtime;
     }
 }

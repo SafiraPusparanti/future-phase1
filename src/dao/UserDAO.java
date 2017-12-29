@@ -11,7 +11,7 @@ public class UserDAO {
     public static final String database = "org.postgresql.Driver";
     public static final String url = "jdbc:postgresql://localhost:5432/safirapusparanti?currentSchema=kanmakan";
     public static final String username = "postgres";
-    public static final String password = "dbpass";
+    public static final String password = "dbfira";
 
     Connection conn;
 
@@ -21,7 +21,6 @@ public class UserDAO {
             Class.forName(database);
             conn = DriverManager.getConnection(url, username, password);
         } catch (Exception e) {
-            System.out.println("masuk exception dao");
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
@@ -34,8 +33,7 @@ public class UserDAO {
 
         List<UserModel> users = new ArrayList<UserModel>();
         while (rs.next()) {
-            users.add(new UserModel(rs.getString(1), rs.getString(2), rs.getString(3), null, rs.getBoolean(4), null));
-
+            users.add(new UserModel(rs.getString(1), rs.getString(2), rs.getString(3), null, rs.getBoolean(4)));
         }
         return users;
     }
@@ -48,7 +46,7 @@ public class UserDAO {
 
         UserModel output;
         if (rs.next()) {
-            output = new UserModel(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getBoolean(5), rs.getDate(6));
+            output = new UserModel(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getBoolean(5));
         } else {
             output = null;
         }
@@ -66,15 +64,12 @@ public class UserDAO {
     }
 
     public void addUser(UserModel user) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO user_pos (user_id, name, email, password, role, logtime) VALUES (?,?,?,?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO user_pos (user_id, name, email, password, role) VALUES (?,?,?,?,?)");
         ps.setString(1, user.getUserId());
         ps.setString(2, user.getName());
         ps.setString(3, user.getEmail());
         ps.setString(4, user.getPassword());
         ps.setBoolean(5, user.isRole());
-        ps.setDate(6, null);
-        System.out.println("get logtime " + user.getLogtime());
-        System.out.println("masuk dao");
         System.out.println(ps);
         ps.executeUpdate();
     }

@@ -46,6 +46,7 @@
             var table = $('#users').DataTable({
 //            "processing": true,
 //            "serverSide": true,
+                "dom": '<"row"<"col-md-6"i><"col-md-6"f>><"row"<"col-md-12"t>><"row"<"col-md-12"p>>',
                 "ajax": {"url": "/admin/users/list", "dataSrc": ""},
                 "columns": [
                     {"data": "userId"},
@@ -53,7 +54,7 @@
                     {"data": "email"},
                     {
                         data: null,
-                        className: "center",
+                        className: "text-center",
                         defaultContent: '<a href="" class="remove table-link">Delete</a>'
                     }
                 ]
@@ -163,29 +164,29 @@
 <%@ include file="/view/admin-header.jsp" %>
 
 <div class="row">
-    <div class="col-4"><br>
+    <div class="col-4 mt-5">
         <div style="margin-left: 5vw">
-            <h1 class="text-center">Add User</h1><br><br>
+            <h1 class="text-center mb-5">Add User</h1>
             <form id="user-form">
                 <div class="form-group">
-                    <label for="name" class="text-white">Name</label>
+                    <label for="name" class="text-white">Name*</label>
                     <input type="text" class="form-control bg-dark text-white" id="name" name="name" placeholder="Enter full name"
                            required/>
                 </div>
                 <div class="form-group">
-                    <label for="email" class="text-white">Email</label>
+                    <label for="email" class="text-white">Email*</label>
                     <input type="email" class="form-control bg-dark text-white" id="email" name="email" placeholder="Enter email"
                            required/>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="text-white">Password</label>
+                    <label for="password" class="text-white">Password*</label>
                     <input type="password" class="form-control bg-dark text-white" id="password" name="password"
                            placeholder="Enter password"
                            required/>
                 </div>
                 <fieldset class="form-group">
                     <div class="row">
-                        <legend class="col-form-legend col-sm-2 text-white">Role</legend>
+                        <legend class="col-form-legend col-sm-2 text-white">Role*</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
                                 <label class="form-check-label text-white">
@@ -218,12 +219,12 @@
     <div class="col-1">
         <div class="v-gray-line"></div>
     </div>
-    <div class="col"><br>
+    <div class="col mt-5">
         <div style="margin-right: 5vw">
-            <h1 class="text-center">Users</h1><br><br>
-            <table id="users" class="table-light table-hover table-sm" width="100%">
+            <h1 class="text-center mb-5">Users</h1>
+            <table id="users" class="table-light table-striped table-hover table-sm" width="100%">
                 <thead>
-                <tr style="border-bottom: 1px solid rgba(0,0,0,.75)">
+                <tr class="text-center">
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
@@ -249,8 +250,8 @@
                         </div>
                         <div class="modal-footer">
                             <input type="hidden" id="deleteId" name="deleteId">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" id="submit-delete" class="btn btn-danger" value="submit"
+                            <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+                            <button type="submit" id="submit-delete" class="btn btn-outline-danger" value="submit"
                                     data-dismiss="modal">Delete
                             </button>
                         </div>
@@ -273,7 +274,7 @@
                             User has been successfully added to the record.
                         </div>
                         <div class="modal-footer">
-                            <button type="button" id="addedModalOk" class="btn btn-secondary" data-dismiss="modal">Ok
+                            <button type="button" id="addedModalOk" class="btn btn-outline-dark" data-dismiss="modal">Ok
                             </button>
                         </div>
                     </div>

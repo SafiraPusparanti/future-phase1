@@ -17,7 +17,6 @@ public class ProductDelete extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
-            System.out.println(request.getParameter("deleteId"));
             productService.deleteProduct(request.getParameter("deleteId"));
             response.setStatus(200);
 

@@ -29,7 +29,6 @@ public class UserAdd extends HttpServlet {
         try {
             String strIdNo = userService.getMaxId(role);
             strIdNo = strIdNo.substring(3, 6);
-            System.out.println("stridno adalah " + strIdNo);
             idNo = Integer.parseInt(strIdNo);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -41,17 +40,13 @@ public class UserAdd extends HttpServlet {
         } else {
             userId = "CSH" + String.format("%03d", ++idNo);
         }
-        System.out.println("mao masuk try");
+
         try{
-            System.out.println("masuk try");
             UserModel user = new UserModel( userId,
                     request.getParameter("name"),//id, name, email, pass, logtime, role
                     request.getParameter("email"),
                     request.getParameter("password"),
-                    role,
-                    null);
-            System.out.println(request.getParameter("name"));
-            System.out.println(user.getName());
+                    role);
 
             userService.addUser(user);
         } catch (Exception e){

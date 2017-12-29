@@ -29,29 +29,56 @@
 
             var table = $('#ledger').DataTable({
                 "order": [],
+                "dom": "<\'row\'<\'col-md-6\'i><\'col-md-6\'f>><\'row\'<\'col-md-12\'t>><'row'<'col-md-12'p>>",
                 "ajax": {"url": "/admin/ledger/weekly", "dataSrc": ""},
                 "columns": [
-                    {"data": "ledgerDate", "orderable": false},
-                    {"data": "income"}
+                    {"data": "ledgerDate", "orderData": [4], "className": "pl-5"},
+                    {"data": "currencyWrapper", "orderData": [2], "className": "text-right pr-5"},
+                    {"data": "income", "visible": false},
+                    {"data": "startDate", "visible": false},
+                    {"data": "endDate", "visible": false},
+                    {
+                        data: null,
+                        className: "text-center",
+                        defaultContent: '<a href="" class="detail table-link">See Transactions' +
+                        '<form hidden action="/admin/transactions" method="post">' +
+                        '<input class="detail-start-date" name="startDate" value="" hidden>' +
+                        '<input class="detail-end-date" name="endDate" value="" hidden>' +
+                        '</form>' +
+                        '</a>'
+                    }
                 ]
+            });
+            $('#ledger th').removeClass('text-right');
+
+            $('#ledger').on('click', 'a.detail', function (e) {
+                e.preventDefault();
+                var startDate = table.row($(this).parents('tr')).data().startDate;
+                var endDate = table.row($(this).parents('tr')).data().endDate;
+                $(this).find("input.detail-start-date").val(startDate);
+                $(this).find("input.detail-end-date").val(endDate);
+                $(this).find("form").submit();
             });
 
             $('#weekly-button').on('click', function () {
                 $('.ledger-type a').removeClass('active');
                 $(this).toggleClass('active');
                 table.ajax.url('/admin/ledger/weekly').load();
+                $('#ledger th').removeClass('text-right');
             });
 
             $('#monthly-button').on('click', function () {
                 $('.ledger-type a').removeClass('active');
                 $(this).toggleClass('active');
                 table.ajax.url('/admin/ledger/monthly').load();
+                $('#ledger th').removeClass('text-right');
             });
 
             $('#yearly-button').on('click', function () {
                 $('.ledger-type a').removeClass('active');
                 $(this).toggleClass('active');
                 table.ajax.url('/admin/ledger/yearly').load();
+                $('#ledger th').removeClass('text-right');
             });
         });
     </script>
@@ -63,10 +90,6 @@
 
         #ledger>thead>tr>th {
             border-bottom: 1px solid #000000;
-        }
-
-        #ledger>tbody>tr>td:nth-child(1), #ledger>tbody>tr>th:nth-child(1), #ledger>thead>tr>td:nth-child(1), #ledger>thead>tr>th:nth-child(1) {
-            padding-left: 10%;
         }
 
         .pagination li a {
@@ -105,15 +128,19 @@
     <div class="col-1 w-5 ml-0 pl-0">
         <div class="v-white-line"></div>
     </div>
-    <div class="col"><br>
+    <div class="col mt-5">
         <div class="mr-5 pr-5 w-75">
-            <h1 class="text-center">Ledger</h1><br><br>
+            <h1 class="text-center mb-5">Ledger</h1>
 
-            <table id="ledger" class="table table-light table-hover table-sm w-100">
+            <table id="ledger" class="table-light table-hover table-striped table-sm w-100" cellspacing="0">
                 <thead>
-                <tr>
+                <tr class="text-center">
                     <th>Date</th>
                     <th>Income</th>
+                    <th>Income Unwrapped</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
             </table>

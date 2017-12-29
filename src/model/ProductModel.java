@@ -3,12 +3,13 @@ package model;
 public class ProductModel {
     private String productId;
     private String name;
-    private int price;
-    private boolean isAvailable;//TODO ubah jadi isAvailable
+    private float price;
+    private boolean isAvailable;
     private String categoryId;
     private String imageUrl;
+    private String currencyWrapper;
 
-    public ProductModel(String productId, String name, int price, boolean isAvailable, String categoryId, String imageUrl) {
+    public ProductModel(String productId, String name, float price, boolean isAvailable, String categoryId, String imageUrl) {
         this.productId = productId;
         this.name = name;
         this.price = price;
@@ -33,11 +34,11 @@ public class ProductModel {
         this.name = name;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
@@ -63,5 +64,21 @@ public class ProductModel {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
+    public String getCurrencyWrapper() {
+        return currencyWrapper;
+    }
+
+    public void setCurrencyWrapper(String currencyWrapper) {
+        this.currencyWrapper = currencyWrapper;
     }
 }

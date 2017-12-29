@@ -18,7 +18,6 @@ public class ProductEdit extends HttpServlet {
         try {
             String productId = request.getParameter("productId");
             String imageUrl = request.getParameter("imageUrl");
-            System.out.println(productId +"  "+ imageUrl);
             productService.setImage(productId, imageUrl);
             response.setStatus(200);
 

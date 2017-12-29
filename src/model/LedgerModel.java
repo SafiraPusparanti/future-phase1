@@ -1,25 +1,17 @@
 package model;
 
-import java.sql.Timestamp;
-import java.util.Date;
-
 public class LedgerModel {
-    private Timestamp timeTrans;
     private float income;
     private String ledgerDate;
+    private String startDate;
+    private String endDate;
+    private String currencyWrapper;
 
-    public LedgerModel(Timestamp timeTrans, float income, String ledgerDate) {
-        this.timeTrans = timeTrans;
+    public LedgerModel(float income, String ledgerDate, String startDate, String endDate) {
         this.income = income;
         this.ledgerDate = ledgerDate;
-    }
-
-    public Timestamp getTimeTrans() {
-        return timeTrans;
-    }
-
-    public void setTimeTrans(Timestamp timeTrans) {
-        this.timeTrans = timeTrans;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public float getIncome() {
@@ -36,5 +28,29 @@ public class LedgerModel {
 
     public void setLedgerDate(String ledgerDate) {
         this.ledgerDate = ledgerDate;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getCurrencyWrapper() {
+        return currencyWrapper;
+    }
+
+    public void setCurrencyWrapper(String currencyWrapper) {
+        this.currencyWrapper = currencyWrapper;
     }
 }
