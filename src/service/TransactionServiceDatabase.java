@@ -10,6 +10,16 @@ public class TransactionServiceDatabase implements TransactionService {
     TransactionDAO transactionDAO = new TransactionDAO();
 
     @Override
+    public void addTransaction(TransactionModel trasaction) throws SQLException {
+        transactionDAO.addTransaction(trasaction);
+    }
+
+    @Override
+    public String getMaxId() throws SQLException {
+        return transactionDAO.getMaxId();
+    }
+
+    @Override
     public List<TransactionModel> getTransactionList(String startDate, String endDate) throws SQLException {
         List<TransactionModel> transactionList = transactionDAO.getTransactionList(startDate, endDate);
 

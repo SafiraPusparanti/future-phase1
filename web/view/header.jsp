@@ -6,26 +6,56 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page import="java.util.Date"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<link type="text/css" rel="stylesheet" href="../assets/css/links.css" media="screen,projection"/>
+<style>
+    nav {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, .8);
+    }
+</style>
 <nav>
-    <h3 href="#" class="text-center text-white">POS SYSTEM</h3><br>
     <div class="row">
+        <div class="col-1"></div>
         <div class="col">
-            <a class="text-white">Role: username</a><br>
-            <%--<a class="text-white">Date: <%=new Date()%></a>--%>
-
+            <table style="table-layout: fixed; width: 100%;">
+                <tbody class="text-white" style=" position: relative;">
+                <tr>
+                    <td class="align-bottom">Role: username</td>
+                    <td class="text-center align-bottom lead">KANMAKAN</td>
+                    <td class="text-right align-bottom">
+                        <%
+                            Date dNow = new Date();
+                            SimpleDateFormat ft =
+                                    new SimpleDateFormat("E dd MMM, yyyy");
+                            out.print("<span class=\"text-white\">" + ft.format(dNow) + "</span>");
+                        %>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row mb-lg-2">
+        <div class="col-1"></div>
+        <div class="col">
             <a href="https://time.is/Jakarta" id="time_is_link" rel="nofollow" style="color:#ffffff"></a>
             <span id="Jakarta_z41c" style="color:#ffffff"></span>
             <script src="//widget.time.is/en.js"></script>
             <script>
-                time_is_widget.init({Jakarta_z41c:{template:"DATE<br>TIME", date_format:"dayname, monthname dnum, year"}});
+                time_is_widget.init({Jakarta_z41c: {template: "TIME"}});
             </script>
         </div>
-        <div class="col">
-            <a href="#">
-                <img class="float-right" border="0" alt="logout" src="../assets/img/logout.png" width="50" height="50">
-            </a>
+        <div class="col-3 main-link d-flex justify-content-around text-white">
+            Point of Sale System
         </div>
+        <div class="col logout-link text-right">
+            <a href="">Logout</a>
+        </div>
+        <div class="col-1"></div>
     </div>
 </nav>
 <%--<!DOCTYPE html>--%>

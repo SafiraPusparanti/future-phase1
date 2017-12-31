@@ -24,6 +24,25 @@ public class TransactionDAO {
         }
     }
 
+    public void addTransaction(TransactionModel transaction) throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO transaction_pos (transaction_id, cashier_id, time_trans, total_price) VALUES (?,?,?,?)");
+        ps.setString(1, transaction.getTransactionId());
+        ps.setString(2, transaction.getCashierId());
+        ps.setTimestamp(3, transaction.getTimeTrans());
+        ps.setFloat(4, transaction.getTotalPrice());
+        System.out.println(ps);
+        ps.executeUpdate();
+    }
+
+    public String getMaxId() throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("SELECT transaction_id FROM transaction_pos ORDER BY transaction_id DESC LIMIT 1");
+        System.out.println(ps);
+
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        return rs.getString(1);
+    }
+
     public List<TransactionModel> getTransactionList(String startDate, String endDate) throws SQLException {
         PreparedStatement ps = conn.prepareStatement("SELECT transaction_id, cashier_id, time_trans, total_price " +
                 "FROM transaction_pos " +

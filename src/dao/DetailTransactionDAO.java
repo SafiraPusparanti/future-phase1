@@ -24,6 +24,16 @@ public class DetailTransactionDAO {
         }
     }
 
+    public void addDetailTransaction(DetailTransactionModel transaction) throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO detail_transaction (transaction_id, product_id, sub_total, quantity) VALUES (?,?,?,?)");
+        ps.setString(1, transaction.getTransactionId());
+        ps.setString(2, transaction.getProductId());
+        ps.setFloat(3, transaction.getSubTotal());
+        ps.setInt(4, transaction.getQuantity());
+        System.out.println(ps);
+        ps.executeUpdate();
+    }
+
     public List<DetailTransactionModel> getDetailTransactionList(String transactionId) throws SQLException {
         PreparedStatement ps = conn.prepareStatement("SELECT d.transaction_id, d.product_id, d.sub_total, d.quantity, p.name, p.price " +
                 "FROM detail_transaction d, product p " +

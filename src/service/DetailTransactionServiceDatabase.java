@@ -10,6 +10,11 @@ public class DetailTransactionServiceDatabase implements DetailTransactionServic
     DetailTransactionDAO detailTransactionDAO = new DetailTransactionDAO();
 
     @Override
+    public void addDetailTransaction(DetailTransactionModel detailTransaction) throws SQLException {
+        detailTransactionDAO.addDetailTransaction(detailTransaction);
+    }
+
+    @Override
     public List<DetailTransactionModel> getDetailTransactionList(String transactionId) throws SQLException {
         List<DetailTransactionModel> detailTransactionList = detailTransactionDAO.getDetailTransactionList(transactionId);
 

@@ -36,6 +36,17 @@ public class ProductDAO {
         return products;
     }
 
+    public List<ProductModel> getCashierProductsByCategory(String categoryId) throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("SELECT product_id, name, price, is_available, category_id, image_url FROM product WHERE category_id = ? AND is_available = TRUE");
+        ps.setString(1, categoryId);
+        ResultSet rs = ps.executeQuery();
+        List<ProductModel> products = new ArrayList<ProductModel>();
+        while (rs.next()) {
+            products.add(new ProductModel(rs.getString(1), rs.getString(2), rs.getFloat(3), rs.getBoolean(4), rs.getString(5), rs.getString(6)));
+        }
+        return products;
+    }
+
     public ProductModel getProduct(String productId) throws SQLException {
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM product where product_id = ?");
         ps.setString(1, productId);

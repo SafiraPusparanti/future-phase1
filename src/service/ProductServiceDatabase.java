@@ -21,6 +21,11 @@ public class ProductServiceDatabase implements ProductService {
     }
 
     @Override
+    public List<ProductModel> getCashierProductsByCategory(String categoryId) throws SQLException {
+        return productDAO.getCashierProductsByCategory(categoryId);
+    }
+
+    @Override
     public String getMaxId(String category) throws SQLException {
         return productDAO.getMaxId(category);
     }

@@ -10,5 +10,5 @@ h1 {
 .dataTables_length,
 .dataTables_filter,
 .dataTables_info {
-    color: white;
+    color: white !important;
 }

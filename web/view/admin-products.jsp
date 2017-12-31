@@ -181,6 +181,7 @@
                         notyf.confirm(productId + ' have been deleted from the record.');
 
                         setTimeout(function () {
+                            $('#show-detail').fadeOut();
                             table.ajax.reload();
                         }, 1000);
                     });
@@ -209,7 +210,7 @@
 
                         setTimeout(function () {
                             categoryId = category;
-                            $('.active').button('toggle');
+                            $('.btn-group .active').button('toggle');
                             if (category == 'AP') {
                                 $('#appetizer-btn').button('toggle');
                             } else if (category == 'MD') {
@@ -254,8 +255,6 @@
                 table.ajax.reload();
                 $('#show-detail').fadeOut();
             });
-
-
         });
     </script>
     <style>
