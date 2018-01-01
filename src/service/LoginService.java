@@ -12,9 +12,9 @@ public class LoginService {
         try{
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/safirapusparanti?currentSchema=kanmakan",
+                    "jdbc:postgresql://localhost:5432/POS",
                     "postgres",
-                    "dbfira"
+                    "aldoleonardo"
             );
         }catch (Exception e){
             e.printStackTrace();

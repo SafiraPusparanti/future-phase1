@@ -23,7 +23,7 @@
             <table style="table-layout: fixed; width: 100%;">
                 <tbody class="text-white" style=" position: relative;">
                 <tr>
-                    <td class="align-bottom">Role: username</td>
+                    <td class="align-bottom">Role: <%= session.getAttribute("userId") %></td>
                     <td class="text-center align-bottom lead">KANMAKAN</td>
                     <td class="text-right align-bottom">
                         <%
@@ -53,7 +53,7 @@
             Point of Sale System
         </div>
         <div class="col logout-link text-right">
-            <a href="">Logout</a>
+            <a href="/logout">Logout</a>
         </div>
         <div class="col-1"></div>
     </div>

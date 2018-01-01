@@ -23,6 +23,7 @@ public class LoginCek extends HttpServlet {
 
         HttpSession session = request.getSession();
         session.setAttribute("userId", user.getUserId());
+        session.setAttribute("user", user);
         //System.out.println(user.getUserId());
 
         LoginService loginservice = new LoginService();
@@ -32,7 +33,7 @@ public class LoginCek extends HttpServlet {
 
             if(user.getUserId().startsWith("ADM")) {
 
-               response.sendRedirect("/admin/users");
+               response.sendRedirect("/view/admin-menu.jsp");
             }
             else {
                 response.sendRedirect("/cashier");
