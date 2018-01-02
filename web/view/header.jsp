@@ -23,9 +23,9 @@
             <table style="table-layout: fixed; width: 100%;">
                 <tbody class="text-white" style=" position: relative;">
                 <tr>
-                    <td class="align-bottom">Role: <%= session.getAttribute("userId") %></td>
+                    <td class="align-bottom" id="userId">Role: <%= session.getAttribute("userId") %></td>
                     <td class="text-center align-bottom lead">KANMAKAN</td>
-                    <td class="text-right align-bottom">
+                    <td class="text-right align-bottom" id="date">
                         <%
                             Date dNow = new Date();
                             SimpleDateFormat ft =

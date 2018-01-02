@@ -133,15 +133,25 @@
                 var productName = table.row('.selected').data().name;
                 var price = table.row('.selected').data().price;
                 var quantity = $("#item-qty").val();
-                $.post('/cart/add', {productId: productId, productName: productName, quantity: quantity, price: price},
-                    function () { // on success --TODO: alert if error occurs
-                        notyf.confirm(productId + ' have been added to the cart!');
+                if(quantity > 0) {
+                    $.post('/cart/add', {
+                            productId: productId,
+                            productName: productName,
+                            quantity: quantity,
+                            price: price
+                        },
+                        function () { // on success --TODO: alert if error occurs
+                            notyf.confirm(productId + ' have been added to the cart!');
 
-                        setTimeout(function () {
-                            cartTable.ajax.reload();
-                            cartTotalPrice();
-                        }, 1000);
-                    });
+                            setTimeout(function () {
+                                cartTable.ajax.reload();
+                                cartTotalPrice();
+                            }, 1000);
+                        });
+                }
+                else{
+                    notyf.alert("Quantity under one!");
+                }
             });
 
             function cartTotalPrice() {
@@ -159,21 +169,60 @@
 
             $("#payment-confirm").on('click', function (e) {
                 e.preventDefault();
+                var currency = $(".total-price-span").html();
+                var price = currency.replace(/\D/g,"");
+                price = price.slice(0, -2);
+                //console.log(price);
+                var pay = document.getElementById("pay").value;
 
-                $.post('/cashier/pay',
-                    function () { // on success --TODO: alert if error occurs
+                if(pay > price) {
+                    $.post('/cashier/pay',
+                        function () { // on success --TODO: alert if error occurs
 
-                        notyf.confirm('Payment succeed!');
+                            notyf.confirm('Payment succeed!');
 
-                        setTimeout(function () {
-                            cartTable.ajax.reload();
-                        }, 1000);
+                            setTimeout(function () {
+                                cartTable.ajax.reload();
+                            }, 1000);
 
-                        setTimeout(function () {
-                            cartTotalPrice();
-                        }, 2000);
-                    });
+                            setTimeout(function () {
+                                cartTotalPrice();
+                            }, 2000);
+                        });
+
+                    //remove delete link
+                    var clone = $("#shopping-cart").clone();
+                    clone.find(".table-link").remove();
+                    clone.find("tr").after("<br>");
+                    clone.find("td").after(" ");
+                    var divContents = clone.html();
+                    var userid = $("#userId").html();
+                    var date = $("#date").html();
+                    var time = $("#Jakarta_z41c").html();
+                    var total = $(".total-price-span").html();
+                    var change = $("#change-span").html();
+                    var pay = $("#pay").val();
+                    var printWindow = window.open('', 'Print receipt', 'height=400,width=800');
+                    printWindow.document.write('<html><head><title>DIV Contents</title>');
+                    printWindow.document.write('<h3 align="center"> KanMakan Receipt </h3>');
+                    printWindow.document.write('</head><body >');
+                    printWindow.document.write(userid + '<br>');
+                    printWindow.document.write(date + time + '<hr>');
+                    printWindow.document.write('<br>' + divContents + '<hr>');
+                    printWindow.document.write('<br> Total : ' + total);
+                    printWindow.document.write('<br> Pay : ' + pay);
+                    printWindow.document.write('<br> Change : ' + change);
+                    printWindow.document.write('<br> Change : ' + change);
+                    printWindow.document.write('<br> Change : ' + change);
+                    printWindow.document.write('</body></html>');
+                    printWindow.document.close();
+                    printWindow.print();
+                }
+                else{
+                    notyf.alert("underpaid");
+                }
             });
+
 
             $("#reset-btn").on('click', function () {
                 $.post('/cart/reset',
@@ -225,6 +274,15 @@
 
             });
         });
+
+        function myFunction() {
+            var currency = $(".total-price-span").html();
+            var price = currency.replace(/\D/g,"");
+            price = price.slice(0, -2);
+            console.log(price);
+            var pay = document.getElementById("pay").value;
+            document.getElementById("change-span").innerHTML = pay - price;
+        }
     </script>
 </head>
 <body>
@@ -325,7 +383,7 @@
                 <p>Total price:</p>
                 <p><span class="total-price-span"></span></p>
                 <p>Amount of money:</p>
-                <input class="form-control" type="number">
+                <input class="form-control" type="number" id="pay" oninput="myFunction()">
                 <p>Change:</p>
                 <p><span id="change-span"></span></p>
             </div>

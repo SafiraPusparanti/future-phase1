@@ -8,9 +8,9 @@ import java.util.List;
 
 public class DetailTransactionDAO {
     public static final String database = "org.postgresql.Driver";
-    public static final String url = "jdbc:postgresql://localhost:5432/safirapusparanti?currentSchema=kanmakan";
+    public static final String url = "jdbc:postgresql://localhost:5432/POS";
     public static final String username = "postgres";
-    public static final String password = "dbfira";
+    public static final String password = "aldoleonardo";
 
     Connection conn;
 
