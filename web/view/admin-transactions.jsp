@@ -71,6 +71,14 @@
                             setTimeout(function () {
                                 $('#detailModal').modal('show');
                             }, 1000);
+                        } else {
+                            var modalContent = "<h6>No transaction details available.</h6><br>";
+
+                            $('#transactionIdSpan').text("No Records");
+                            $("#transactionModalBody").html(modalContent);
+                            setTimeout(function () {
+                                $('#detailModal').modal('show');
+                            }, 1000);
                         }
 
                     });
@@ -139,7 +147,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="detailModalLabel">Detail Transaction - <span id="transactionIdSpan"></span></h5>
+                    <h5 class="modal-title" id="detailModalLabel">Transaction Detail - <span id="transactionIdSpan"></span></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
