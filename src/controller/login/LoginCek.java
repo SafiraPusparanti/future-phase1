@@ -16,7 +16,6 @@ public class LoginCek extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password").hashCode() + "";
-        System.out.println(password);
         UserModel user = new UserModel("", "", "", "",  true);
         user.setUserId(username);
         user.setPassword(password);

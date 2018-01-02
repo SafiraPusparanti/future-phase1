@@ -70,7 +70,6 @@ public class UserDAO {
         ps.setString(3, user.getEmail());
         ps.setString(4, user.getPassword());
         ps.setBoolean(5, user.isRole());
-        System.out.println(ps);
         ps.executeUpdate();
     }
 
