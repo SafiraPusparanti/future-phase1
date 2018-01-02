@@ -173,9 +173,9 @@
                 var price = currency.replace(/\D/g,"");
                 price = price.slice(0, -2);
                 //console.log(price);
-                var pay = document.getElementById("pay").value;
+                var pay = $("#pay").val();
 
-                if(pay > price) {
+                if(parseFloat(pay) > parseFloat(price)) {
                     $.post('/cashier/pay',
                         function () { // on success --TODO: alert if error occurs
 
@@ -211,9 +211,9 @@
                     printWindow.document.write('<br>' + divContents + '<hr>');
                     printWindow.document.write('<br> Total : ' + total);
                     printWindow.document.write('<br> Pay : ' + pay);
-                    printWindow.document.write('<br> Change : ' + change);
-                    printWindow.document.write('<br> Change : ' + change);
-                    printWindow.document.write('<br> Change : ' + change);
+                    printWindow.document.write('<footer align = "center"> All prices include tax 10%');
+                    printWindow.document.write('<br> PT. Kan Makan');
+                    printWindow.document.write('<br> kanmakan@gmail.com </footer>');
                     printWindow.document.write('</body></html>');
                     printWindow.document.close();
                     printWindow.print();
