@@ -33,21 +33,16 @@
             var categoryId = "AP";
 
             var notyf = new Notyf({
-                delay: 5000,
+                delay: 4000,
             })
 
             var table = $('#products').DataTable({
-//                "processing": true,
-//                "serverSide": true,
                 "scrollY":300,
                 "scrollX":true,
-//                "scroller":false,
                 "ordering": false,
                 "paging": false,
                 "searching": false,
-//                "lengthChange": false,
                 "info": false,
-//                "deferRender": true,
                 "ajax": {
                     "type": "GET",
                     "url": "/admin/products/list",

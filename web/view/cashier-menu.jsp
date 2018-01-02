@@ -10,9 +10,7 @@
 <html>
 <head>
     <title>Cashier</title>
-    <%--<link rel="stylesheet" type="text/css" href="../assets/css/cashierStyle.css">--%>
     <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css" media="screen,projection"/>
-
     <link type="text/css" rel="stylesheet" href="../assets/css/layout.css" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../assets/css/links.css" media="screen,projection"/>
     <link rel="stylesheet" type="text/css"
@@ -24,25 +22,14 @@
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../assets/js/notyf.min.js"></script>
-
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/select/1.2.4/js/dataTables.select.min.js"></script>
 
     <style>
-        /*.hidden, .removed{*/
-        /*display:none;*/
-        /*}*/
-        /*#cart-div {*/
-            /*height: 65%;*/
-        /*}*/
-
-        /*td{*/
-        /*color:#ffffff;*/
-        /*}*/
-
         .dataTables_scroll {
             background-color: rgba(255, 255, 255, .8);
         }
+
         #total-price {
             color: #ffffff;
             font-size: large;
@@ -51,7 +38,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var notyf = new Notyf({
-                delay: 5000,
+                delay: 4000,
             });
             var categoryId = "AP";
             setTimeout(function () {
@@ -78,11 +65,11 @@
                     {"data": "price"},
                     {"data": "imageUrl"}
                 ],
-                "columnDefs" : [{
-                    "targets" : 3,
+                "columnDefs": [{
+                    "targets": 3,
                     "data": "imageUrl",
-                    "render" : function (data, type, row) {
-                        return '<img height="100px" width="100px" src="'+data+'"/>';
+                    "render": function (data, type, row) {
+                        return '<img height="100px" width="100px" src="' + data + '"/>';
                     }
                 }],
                 "rowId": 'productId',
@@ -127,20 +114,24 @@
                 }
             });
 
-            $("#btn-add").on('click', function (e) {
+            $('#add-form').submit(function (e) {
                 e.preventDefault();
-                var productId = table.row('.selected').data().productId;
-                var productName = table.row('.selected').data().name;
-                var price = table.row('.selected').data().price;
-                var quantity = $("#item-qty").val();
-                if(quantity > 0) {
+
+                if (!$('#products tbody tr').hasClass('selected')) {
+                    notyf.alert("No selected products.");
+                } else {
+                    var productId = table.row('.selected').data().productId;
+                    var productName = table.row('.selected').data().name;
+                    var price = table.row('.selected').data().price;
+                    var quantity = $("#item-qty").val();
+
                     $.post('/cart/add', {
                             productId: productId,
                             productName: productName,
                             quantity: quantity,
                             price: price
                         },
-                        function () { // on success --TODO: alert if error occurs
+                        function () {
                             notyf.confirm(productId + ' have been added to the cart!');
 
                             setTimeout(function () {
@@ -148,9 +139,6 @@
                                 cartTotalPrice();
                             }, 1000);
                         });
-                }
-                else{
-                    notyf.alert("Quantity under one!");
                 }
             });
 
@@ -163,6 +151,15 @@
                         if (response.length > 0) {
                             $(".total-price-span").text(response[0]);
                         }
+
+                        //Check if cart is empty
+                        if (!cartTable.data().any()) {
+                            $("#btn-pay").attr("disabled", true);
+                            $("#btn-reset").attr("disabled", true);
+                        } else {
+                            $("#btn-pay").attr("disabled", false);
+                            $("#btn-reset").attr("disabled", false);
+                        }
                     }
                 });
             }
@@ -170,14 +167,14 @@
             $("#payment-confirm").on('click', function (e) {
                 e.preventDefault();
                 var currency = $(".total-price-span").html();
-                var price = currency.replace(/\D/g,"");
+                var price = currency.replace(/\D/g, "");
                 price = price.slice(0, -2);
                 //console.log(price);
                 var pay = $("#pay").val();
 
-                if(parseFloat(pay) > parseFloat(price)) {
+                if (parseFloat(pay) > parseFloat(price)) {
                     $.post('/cashier/pay',
-                        function () { // on success --TODO: alert if error occurs
+                        function () {
 
                             notyf.confirm('Payment succeed!');
 
@@ -188,7 +185,10 @@
                             setTimeout(function () {
                                 cartTotalPrice();
                             }, 2000);
+
+                            $('#payModal').modal('hide');
                         });
+
 
                     //remove delete link
                     var clone = $("#shopping-cart").clone();
@@ -203,28 +203,28 @@
                     var change = $("#change-span").html();
                     var pay = $("#pay").val();
                     var printWindow = window.open('', 'Print receipt', 'height=400,width=800');
-                    printWindow.document.write('<html><head><title>DIV Contents</title>');
+                    printWindow.document.write('<html><head><title></title></head><body>');
                     printWindow.document.write('<h3 align="center"> KanMakan Receipt </h3>');
-                    printWindow.document.write('</head><body >');
                     printWindow.document.write(userid + '<br>');
                     printWindow.document.write(date + time + '<hr>');
                     printWindow.document.write('<br>' + divContents + '<hr>');
                     printWindow.document.write('<br> Total : ' + total);
                     printWindow.document.write('<br> Pay : ' + pay);
+                    printWindow.document.write('<br> Change : ' + change);
                     printWindow.document.write('<footer align = "center"> All prices include tax 10%');
-                    printWindow.document.write('<br> PT. Kan Makan');
-                    printWindow.document.write('<br> kanmakan@gmail.com </footer>');
+                    printWindow.document.write('<br> KanMakan Resto');
+                    printWindow.document.write('<br> cs@kanmakan.com </footer>');
                     printWindow.document.write('</body></html>');
                     printWindow.document.close();
                     printWindow.print();
                 }
-                else{
-                    notyf.alert("underpaid");
+                else {
+                    notyf.alert("Payment Failed: Underpaid.");
                 }
             });
 
 
-            $("#reset-btn").on('click', function () {
+            $("#btn-reset").on('click', function () {
                 $.post('/cart/reset',
                     function () { // on success --TODO: alert if error occurs
 
@@ -275,9 +275,9 @@
             });
         });
 
-        function myFunction() {
+        function calculateChange() {
             var currency = $(".total-price-span").html();
-            var price = currency.replace(/\D/g,"");
+            var price = currency.replace(/\D/g, "");
             price = price.slice(0, -2);
             console.log(price);
             var pay = document.getElementById("pay").value;
@@ -290,30 +290,16 @@
 <%@ include file="/view/header-cashier.jsp" %>
 
 <div class="row">
-    <%--<div class="col-2 ledger-type main-link mr-0 pr-0 text-center"><br>--%>
-    <%--<a id="appetizer-btn">Appetizer</a><br><br><br>--%>
-    <%--<a id="main-btn">Main Dish</a><br><br><br>--%>
-    <%--<a id="snack-btn">Snack</a><br><br><br>--%>
-    <%--<a id="drink-btn">Drink</a><br><br><br>--%>
-    <%--<a id="desert-button">Desert</a><br><br><br>--%>
-    <%--</div>--%>
-    <%--<div class="col-1 w-5 ml-0 pl-0">--%>
-    <%--<div class="v-white-line"></div>--%>
-    <%--</div>--%>
     <div class="col-6 mt-5 w-100">
-
-
-
-            <div class="btn-toolbar mb-3 ml-5 mr-5 justify-content-center" role="toolbar">
-                <div class="btn-group button-group-sm" role="group">
-                    <button type="button" id="appetizer-btn" class="btn btn-outline-light active">Appetizer</button>
-                    <button type="button" id="main-btn" class="btn btn-outline-light">Main Dish</button>
-                    <button type="button" id="snack-btn" class="btn btn-outline-light">Snack</button>
-                    <button type="button" id="drink-btn" class="btn btn-outline-light">Drink</button>
-                    <button type="button" id="desert-btn" class="btn btn-outline-light">Desert</button>
-                </div>
+        <div class="btn-toolbar mb-3 ml-5 mr-5 justify-content-center" role="toolbar">
+            <div class="btn-group button-group-sm" role="group">
+                <button type="button" id="appetizer-btn" class="btn btn-outline-light active">Appetizer</button>
+                <button type="button" id="main-btn" class="btn btn-outline-light">Main Dish</button>
+                <button type="button" id="snack-btn" class="btn btn-outline-light">Snack</button>
+                <button type="button" id="drink-btn" class="btn btn-outline-light">Drink</button>
+                <button type="button" id="desert-btn" class="btn btn-outline-light">Desert</button>
             </div>
-
+        </div>
 
         <div id="menu-container" class="ml-5 mr-5">
             <table id="products" class="table table-light table-hover table-sm" width="100%">
@@ -322,15 +308,18 @@
             </table>
 
             <div id="add-container" class="mt-3">
-                <form>
-                <p class="text-white">Quantity:
+                <form id="add-form">
+                    <p class="text-white">Quantity:
                     <div class="row">
-                    <div class="col">
-                    <input type="number" name="quantity" id="item-qty" class="form-control">
-                    </div>
-                    <div class="col">
-                    <button class="btn btn-outline-light btn-block" type="button" id="btn-add" value="submit">Add</button>
-                    </div>
+                        <div class="col">
+                            <input type="number" name="quantity" id="item-qty" class="form-control" min="1"
+                                   placeholder="Enter quantity" required>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-outline-light btn-block" type="submit" id="btn-add" value="submit">
+                                Add
+                            </button>
+                        </div>
                     </div>
                     </p>
                 </form>
@@ -342,27 +331,25 @@
         <div class="menu ml-5 mr-5">
             <h2 class="text-white mb-3">Cart</h2>
             <div id="cart-div">
-                <%--<table id="cart-body">--%>
-                <%--</table>--%>
                 <table id="shopping-cart" class="table table-light table-hover table-lg" width="100%">
                     <thead style='display:none;'>
                     </thead>
                 </table>
             </div>
             <div id="total-price" class="text-white ml-5 mt-3">
-                <p>Total Price:   <span class="total-price-span"></span></p>
+                <p>Total Price: <span class="total-price-span"></span></p>
             </div>
 
-
-                <div class="row">
-                    <div class="col">
-                    <button id="reset-btn" class="btn btn-outline-light btn-block">RESET</button>
-                    </div>
-                    <div class="col">
-                    <button id="btn-pay" class="btn btn-outline-light btn-block" data-toggle="modal" data-target="#payModal">PAY</button>
-                    </div>
+            <div class="row">
+                <div class="col">
+                    <button id="btn-reset" class="btn btn-outline-light btn-block">RESET</button>
                 </div>
-
+                <div class="col">
+                    <button id="btn-pay" class="btn btn-outline-light btn-block" data-toggle="modal"
+                            data-target="#payModal">PAY
+                    </button>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -374,28 +361,27 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="payModalLabel">Success!</h5>
+                <h5 class="modal-title" id="payModalLabel">Payment</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
-            <div class="modal-body">
+            <div class="modal-body ml-4 mr-4">
                 <p>Total price:</p>
                 <p><span class="total-price-span"></span></p>
                 <p>Amount of money:</p>
-                <input class="form-control" type="number" id="pay" oninput="myFunction()">
+                <input class="form-control" type="number" id="pay" oninput="calculateChange()" min="3000"
+                       placeholder="Enter number"><br>
                 <p>Change:</p>
                 <p><span id="change-span"></span></p>
             </div>
             <div class="modal-footer">
-                <button type="button" id="payment-confirm" class="btn btn-outline-dark" data-dismiss="modal">Confirm</button>
+                <button type="button" id="payment-confirm" class="btn btn-outline-dark">Confirm
+                </button>
             </div>
         </div>
     </div>
 </div>
-
-<%--<script src="../assets/js/main.js"></script>--%>
-
 </body>
 </html>

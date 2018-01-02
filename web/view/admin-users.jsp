@@ -9,43 +9,28 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <%--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">--%>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link type="text/css" rel="stylesheet" href="../assets/css/links.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../assets/css/links.css" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../assets/css/layout.css" media="screen,projection"/>
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/v/bs4/dt-1.10.16/fc-3.2.3/r-2.2.0/datatables.min.css"/>
     <link type="text/css" rel="stylesheet" href="../assets/css/notyf.min.css">
-    <%--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jqc-1.12.3/dt-1.10.16/b-1.4.2/sl-1.2.3/datatables.min.css"/>--%>
-    <%--<link rel="stylesheet" type="text/css" href="../assets/Editor-1.6.5/css/editor.dataTables.css"/>--%>
-
     <script type="text/javascript" src="../assets/js/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
             integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../assets/js/notyf.min.js"></script>
-
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/r-2.2.0/datatables.min.js"></script>
-    <%--<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jqc-1.12.3/dt-1.10.16/b-1.4.2/sl-1.2.3/datatables.min.js"></script>--%>
-    <%--<script type="text/javascript" src="../assets/Editor-1.6.5/js/dataTables.editor.js"></script>--%>
 
     <script type="text/javascript">
         $(document).ready(function () {
-//            $('#success-delete').hide();
-//            $('#fail-delete').hide();
-//            $('#success-add').hide();
-//            $('#fail-add').hide();
-
             var notyf = new Notyf({
-                delay: 5000,
+                delay: 4000,
             })
 
-
             var table = $('#users').DataTable({
-//            "processing": true,
-//            "serverSide": true,
                 "dom": '<"row"<"col-md-6"i><"col-md-6"f>><"row"<"col-md-12"t>><"row"<"col-md-12"p>>',
                 "ajax": {"url": "/admin/users/list", "dataSrc": ""},
                 "columns": [
@@ -97,18 +82,14 @@
                 $('#deleteModal').modal('show');
             });
 
-
             $('#submit-delete').on('click', function () {
                 var userId = $("#deleteId").val();
 
                 $.post('/admin/users/delete', {deleteId: userId},
-                    function () { // on success --TODO: alert if error occurs
+                    function () {
 
                         notyf.confirm(userId + ' have been deleted from the record.');
 
-                        $("#success-delete").fadeTo(2000, 500).slideUp(500, function () {
-                            $("#success-delete").slideUp(500);
-                        });
                         setTimeout(function () {
                             table.ajax.reload();
                         }, 1000);
@@ -122,10 +103,10 @@
 <style>
     #users {
         border-radius: 5px;
-        border: 3px solid rgba(255,255,255,.8);
+        border: 3px solid rgba(255, 255, 255, .8);
     }
 
-    #users>thead>tr>th {
+    #users > thead > tr > th {
         border-bottom: 1px solid #000000;
     }
 
@@ -133,18 +114,18 @@
         color: #000000;
     }
 
-    .pagination>li.active>a {
-        border: 1px solid #455a64  !important;
-        background: #455a64  !important;
+    .pagination > li.active > a {
+        border: 1px solid #455a64 !important;
+        background: #455a64 !important;
         color: #FFFFFF;
     }
 
     .v-white-line {
         width: 0%;
         height: 100%;
-        position:relative;
+        position: relative;
         overflow: hidden;
-        border-left: 1px solid rgba(255,255,255,.8)
+        border-left: 1px solid rgba(255, 255, 255, .8)
     }
 
     .ledger-type {
@@ -155,9 +136,9 @@
     .v-gray-line {
         width: 50%;
         height: 100%;
-        position:relative;
+        position: relative;
         overflow: hidden;
-        border-right: 1px solid rgba(255,255,255,.25)
+        border-right: 1px solid rgba(255, 255, 255, .25)
     }
 </style>
 <body>
@@ -172,17 +153,20 @@
             <form id="user-form">
                 <div class="form-group">
                     <label for="name" class="text-white">Name*</label>
-                    <input type="text" class="form-control bg-dark text-white" id="name" name="name" placeholder="Enter full name"
+                    <input type="text" class="form-control bg-dark text-white" id="name" name="name"
+                           placeholder="Enter full name"
                            required/>
                 </div>
                 <div class="form-group">
                     <label for="email" class="text-white">Email*</label>
-                    <input type="email" class="form-control bg-dark text-white" id="email" name="email" placeholder="Enter email"
+                    <input type="email" class="form-control bg-dark text-white" id="email" name="email"
+                           placeholder="Enter email"
                            required/>
                 </div>
                 <div class="form-group">
                     <label for="password" class="text-white">Password*</label>
-                    <input type="password" class="form-control bg-dark text-white" id="password" name="password" pattern=".{6,16}"
+                    <input type="password" class="form-control bg-dark text-white" id="password" name="password"
+                           pattern=".{6,16}"
                            placeholder="Enter password" required/>
                     <small id="passwordHelp" class="form-text text-secondary">Enter 6-16 characters.</small>
                 </div>
