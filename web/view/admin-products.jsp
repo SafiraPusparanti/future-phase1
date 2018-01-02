@@ -416,7 +416,7 @@
             </div>
             <div class="modal-footer">
                 <input type="hidden" id="newImagePId" name="newImagePId">
-                <button type="submit" id="submit-image" class="btn btn-outline-primary" value="submit"
+                <button type="submit" id="submit-image" class="btn btn-outline-dark" value="submit"
                         data-dismiss="modal">Submit
                 </button>
             </div>

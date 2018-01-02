@@ -153,13 +153,15 @@
                         }
 
                         //Check if cart is empty
-                        if (!cartTable.data().any()) {
-                            $("#btn-pay").attr("disabled", true);
-                            $("#btn-reset").attr("disabled", true);
-                        } else {
-                            $("#btn-pay").attr("disabled", false);
-                            $("#btn-reset").attr("disabled", false);
-                        }
+                        setTimeout(function () {
+                            if (!cartTable.data().any()) {
+                                $("#btn-pay").attr("disabled", true);
+                                $("#btn-reset").attr("disabled", true);
+                            } else {
+                                $("#btn-pay").attr("disabled", false);
+                                $("#btn-reset").attr("disabled", false);
+                            }
+                        }, 1000);
                     }
                 });
             }
@@ -180,13 +182,12 @@
 
                             setTimeout(function () {
                                 cartTable.ajax.reload();
+                                $('#payModal').modal('hide');
                             }, 1000);
 
                             setTimeout(function () {
                                 cartTotalPrice();
                             }, 2000);
-
-                            $('#payModal').modal('hide');
                         });
 
 
@@ -203,15 +204,15 @@
                     var change = $("#change-span").html();
                     var pay = $("#pay").val();
                     var printWindow = window.open('', 'Print receipt', 'height=400,width=800');
-                    printWindow.document.write('<html><head><title></title></head><body>');
-                    printWindow.document.write('<h3 align="center"> KanMakan Receipt </h3>');
+                    printWindow.document.write('<html><head><title>KanMakan Receipt</title></head><body>');
+                    printWindow.document.write('<h3 align="center"> KanMakan Receipt </h3><br><div style="margin-left: 1cm;">');
                     printWindow.document.write(userid + '<br>');
-                    printWindow.document.write(date + time + '<hr>');
-                    printWindow.document.write('<br>' + divContents + '<hr>');
-                    printWindow.document.write('<br> Total : ' + total);
-                    printWindow.document.write('<br> Pay : ' + pay);
+                    printWindow.document.write(date + time + '</div><hr>');
+                    printWindow.document.write('<br><div style="margin-left: 1cm;">' + divContents + '</div><hr>');
+                    printWindow.document.write('<br><div style="margin-left: 1cm;">Total :&nbsp;&nbsp;&nbsp;' + total);
+                    printWindow.document.write('<br> Pay :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + pay);
                     printWindow.document.write('<br> Change : ' + change);
-                    printWindow.document.write('<footer align = "center"> All prices include tax 10%');
+                    printWindow.document.write('</div><br><br><br><br><footer align = "center"> All prices include tax 10%');
                     printWindow.document.write('<br> KanMakan Resto');
                     printWindow.document.write('<br> cs@kanmakan.com </footer>');
                     printWindow.document.write('</body></html>');
