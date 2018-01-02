@@ -22,7 +22,6 @@ public class TransactionMenu extends HttpServlet {
         request.setAttribute("startDate", startDate);
         request.setAttribute("endDate", endDate);
 
-        //TODO: check whether user have already logged in as admin
         request.getRequestDispatcher(address).forward(request, response);
     }
 

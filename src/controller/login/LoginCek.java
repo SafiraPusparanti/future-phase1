@@ -21,23 +21,26 @@ public class LoginCek extends HttpServlet {
         user.setPassword(password);
 
         HttpSession session = request.getSession();
-        session.setAttribute("userId", user.getUserId());
         //System.out.println(user.getUserId());
 
         LoginService loginservice = new LoginService();
         boolean check = loginservice.checkUser(user);
         if(check){
+            session.setAttribute("userId", user.getUserId());
+
             if(user.getUserId().startsWith("ADM")) {
                 session.removeAttribute("loginMessage");
-               response.sendRedirect("/admin/products");
+                response.sendRedirect("/admin/products");
             }
             else {
                 session.removeAttribute("loginMessage");
                 response.sendRedirect("/cashier");
             }
+            return;
         }else{
             session.setAttribute("loginMessage", "Wrong username and/or password.");
             response.sendRedirect("/login");
+            return;
         }
     }
 

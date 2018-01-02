@@ -19,10 +19,10 @@ public class LoginMenu extends HttpServlet {
         if (userId != null) {
             if(userId.startsWith("CSH")) {
                 response.sendRedirect("/cashier");
-                return;
             } else {
                 response.sendRedirect("/admin/products");
             }
+            return;
         }
 
         String address = "/view/login.jsp";

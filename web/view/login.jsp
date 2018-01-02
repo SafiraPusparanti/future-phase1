@@ -34,8 +34,8 @@
         </span>
     </p>
     <form action="/login/cek" method="post">
-        <input type="text" class="input" name="username" placeholder="Username"><br>
-        <input type="password" class="input" name="password" placeholder="Password"> <br>
+        <input type="text" class="input" name="username" placeholder="Username" required><br>
+        <input type="password" class="input" name="password" placeholder="Password" required> <br>
         <input type="submit" id="button" name="" value="Login">
     </form>
 
