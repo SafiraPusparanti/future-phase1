@@ -15,33 +15,31 @@ import java.io.IOException;
 public class LoginCek extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
+        String password = request.getParameter("password").hashCode() + "";
+        System.out.println(password);
         UserModel user = new UserModel("", "", "", "",  true);
         user.setUserId(username);
         user.setPassword(password);
 
         HttpSession session = request.getSession();
         session.setAttribute("userId", user.getUserId());
-        session.setAttribute("user", user);
         //System.out.println(user.getUserId());
 
         LoginService loginservice = new LoginService();
         boolean check = loginservice.checkUser(user);
         if(check){
-
-
             if(user.getUserId().startsWith("ADM")) {
-
-               response.sendRedirect("/view/admin-menu.jsp");
+                session.removeAttribute("loginMessage");
+               response.sendRedirect("/admin/products");
             }
             else {
+                session.removeAttribute("loginMessage");
                 response.sendRedirect("/cashier");
             }
         }else{
+            session.setAttribute("loginMessage", "Wrong username and/or password.");
             response.sendRedirect("/login");
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

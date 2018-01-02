@@ -161,7 +161,9 @@
     }
 </style>
 <body>
-<%@ include file="/view/admin-header.jsp" %>
+
+<%--<%@ include file="/view/session-admin.jsp" %>--%>
+<%@ include file="/view/header-admin.jsp" %>
 
 <div class="row">
     <div class="col-4 mt-5">
@@ -180,9 +182,9 @@
                 </div>
                 <div class="form-group">
                     <label for="password" class="text-white">Password*</label>
-                    <input type="password" class="form-control bg-dark text-white" id="password" name="password"
-                           placeholder="Enter password"
-                           required/>
+                    <input type="password" class="form-control bg-dark text-white" id="password" name="password" pattern=".{6,16}"
+                           placeholder="Enter password" required/>
+                    <small id="passwordHelp" class="form-text text-secondary">Enter 6-16 characters.</small>
                 </div>
                 <fieldset class="form-group">
                     <div class="row">

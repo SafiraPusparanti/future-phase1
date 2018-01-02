@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Safira
-  Date: 08-Oct-17
-  Time: 11:57 AM
+  Date: 25-Dec-17
+  Time: 10:36 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -23,7 +23,7 @@
             <table style="table-layout: fixed; width: 100%;">
                 <tbody class="text-white" style=" position: relative;">
                 <tr>
-                    <td class="align-bottom">Role: <%= session.getAttribute("userId") %></td>
+                    <td class="align-bottom">Role: username</td>
                     <td class="text-center align-bottom lead">KANMAKAN</td>
                     <td class="text-right align-bottom">
                         <%
@@ -50,7 +50,29 @@
             </script>
         </div>
         <div class="col-3 main-link d-flex justify-content-around text-white">
-            Point of Sale System
+            <%
+                String uri = request.getRequestURI();
+                String pageName = uri.substring(uri.lastIndexOf("/")+1);
+                String links = "";
+                if (pageName.equals("admin-products.jsp")){
+                    links += "<a href=\"/admin/products\" class=\"active\">Products</a>";
+                    links += "<a href=\"/admin/ledger\">Ledger</a>";
+                    links += "<a href=\"/admin/users\">Users</a>";
+                } else if (pageName.equals("admin-ledger.jsp") || pageName.equals("admin-transactions.jsp")) {
+                    links += "<a href=\"/admin/products\">Products</a>";
+                    links += "<a href=\"/admin/ledger\" class=\"active\">Ledger</a>";
+                    links += "<a href=\"/admin/users\">Users</a>";
+                } else if (pageName.equals("admin-users.jsp")) {
+                    links += "<a href=\"/admin/products\">Products</a>";
+                    links += "<a href=\"/admin/ledger\">Ledger</a>";
+                    links += "<a href=\"/admin/users\" class=\"active\">Users</a>";
+                } else {
+                    links += "<a href=\"/admin/products\">Products</a>";
+                    links += "<a href=\"/admin/ledger\">Ledger</a>";
+                    links += "<a href=\"/admin/users\">Users</a>";
+                }
+                out.print(links);
+            %>
         </div>
         <div class="col logout-link text-right">
             <a href="/logout">Logout</a>
@@ -58,12 +80,11 @@
         <div class="col-1"></div>
     </div>
 </nav>
-<%--<!DOCTYPE html>--%>
-<%--<html>--%>
-<%--<head>--%>
-    <%--<title>Title</title>--%>
-<%--</head>--%>
-<%--<body>--%>
 
-<%--</body>--%>
-<%--</html>--%>
+
+<%--<a href="https://time.is/Jakarta" id="time_is_link" rel="nofollow" style="color:#ffffff"></a>--%>
+<%--<span id="Jakarta_z41c" style="color:#ffffff"></span>--%>
+<%--<script src="//widget.time.is/en.js"></script>--%>
+<%--<script>--%>
+<%--time_is_widget.init({Jakarta_z41c:{template:"DATE<br>TIME", date_format:"dayname, monthname dnum, year"}});--%>
+<%--</script>--%>

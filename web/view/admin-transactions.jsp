@@ -101,7 +101,9 @@
     <title>Transactions History</title>
 </head>
 <body>
-<%@ include file="/view/admin-header.jsp" %>
+
+<%@ include file="/view/session-admin.jsp" %>
+<%@ include file="/view/header-admin.jsp" %>
 <div class="container mt-5">
     <h1 class="text-center">Transactions</h1>
     <p class="text-white text-center mb-5">

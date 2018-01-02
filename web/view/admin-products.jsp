@@ -265,7 +265,9 @@
     <title>Manage Products</title>
 </head>
 <body>
-<%@ include file="/view/admin-header.jsp" %>
+
+<%@ include file="/view/session-admin.jsp" %>
+<%@ include file="/view/header-admin.jsp" %>
 
 <div class="row">
     <div class="col-4 mt-5">

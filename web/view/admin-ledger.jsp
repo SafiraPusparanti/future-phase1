@@ -118,7 +118,8 @@
     <title>View Ledger</title>
 </head>
 <body>
-<%@ include file="/view/admin-header.jsp" %>
+<%@ include file="/view/session-admin.jsp" %>
+<%@ include file="/view/header-admin.jsp" %>
 <div class="row">
     <div class="col-2 ledger-type main-link mr-0 pr-0 text-center"><br>
         <a id="weekly-button">weekly</a><br><br><br>

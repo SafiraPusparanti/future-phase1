@@ -1,5 +1,6 @@
 package service;
 
+import connection.ConnectionDAO;
 import model.UserModel;
 
 import java.sql.Connection;
@@ -8,13 +9,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class LoginService {
+
+    public static ConnectionDAO connect = new ConnectionDAO();
+    public static final String database = connect.database;
+    public static final String url = connect.url;
+    public static final String username = connect.username;
+    public static final String password = connect.password;
+
     private void openConnection(){
         try{
-            Class.forName("org.postgresql.Driver");
+            Class.forName(database);
             c = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/POS",
-                    "postgres",
-                    "aldoleonardo"
+                    url,
+                    username,
+                    password
             );
         }catch (Exception e){
             e.printStackTrace();
@@ -30,7 +38,7 @@ public class LoginService {
             c.close();
             System.out.println("closed");
         }catch (Exception e){
-            System.out.println("Failure on closing db connection : " + e.getMessage());
+            System.out.println("Failure on closing db ConnectionDAO : " + e.getMessage());
             e.printStackTrace();
         }
     }

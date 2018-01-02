@@ -1,5 +1,6 @@
 package dao;
 
+import connection.ConnectionDAO;
 import model.UserModel;
 
 import java.sql.*;
@@ -7,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO {
-    public static final String database = "org.postgresql.Driver";
-    public static final String url = "jdbc:postgresql://localhost:5432/safirapusparanti?currentSchema=kanmakan";
-    public static final String username = "postgres";
-    public static final String password = "dbfira";
-
+    public static ConnectionDAO connect = new ConnectionDAO();
+    public static final String database = connect.database;
+    public static final String url = connect.url;
+    public static final String username = connect.username;
+    public static final String password = connect.password;
     Connection conn;
 
     public UserDAO() {

@@ -12,13 +12,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <script type="text/javascript" src="../assets/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#weekly-button').addClass("active");
+        });
+    </script>
 </head>
 <body>
 
 <div class="container">
 
-
     <h1><font>LOGIN</font></h1>
+    <p>
+        <span id="login-message">
+            <%
+                if (request.getSession().getAttribute("loginMessage") != null) {
+                    out.print(request.getSession().getAttribute("loginMessage"));
+                }
+            %>
+        </span>
+    </p>
     <form action="/login/cek" method="post">
         <input type="text" class="input" name="username" placeholder="Username"><br>
         <input type="password" class="input" name="password" placeholder="Password"> <br>

@@ -14,6 +14,17 @@ public class LoginMenu extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String userId = (String) request.getSession().getAttribute("userId");
+
+        if (userId != null) {
+            if(userId.startsWith("CSH")) {
+                response.sendRedirect("/cashier");
+                return;
+            } else {
+                response.sendRedirect("/admin/products");
+            }
+        }
+
         String address = "/view/login.jsp";
 
         request.getRequestDispatcher(address).forward(request, response);

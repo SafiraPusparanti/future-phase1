@@ -18,7 +18,7 @@ public class LogoutCek extends HttpServlet {
         HttpSession session = request.getSession();
 
         if(!session.getAttribute("userId").equals("")){
-            session.removeAttribute("userId");
+            session.invalidate();
             response.sendRedirect("/login");
         }
     }

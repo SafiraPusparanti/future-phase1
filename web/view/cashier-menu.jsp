@@ -228,7 +228,8 @@
     </script>
 </head>
 <body>
-<%@ include file="/view/header.jsp" %>
+<%@ include file="/view/session-cashier.jsp" %>
+<%@ include file="/view/header-cashier.jsp" %>
 
 <div class="row">
     <%--<div class="col-2 ledger-type main-link mr-0 pr-0 text-center"><br>--%>
@@ -270,7 +271,7 @@
                     <input type="number" name="quantity" id="item-qty" class="form-control">
                     </div>
                     <div class="col">
-                    <button class="btn btn-outline-light btn-block" type="submit" name="add-menu" id="btn-add" value="submit">Add</button>
+                    <button class="btn btn-outline-light btn-block" type="button" id="btn-add" value="submit">Add</button>
                     </div>
                     </div>
                     </p>

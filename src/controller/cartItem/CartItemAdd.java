@@ -13,9 +13,7 @@ import java.util.Map;
 
 @WebServlet("/cart/add")
 public class CartItemAdd extends HttpServlet {
-//    CartItemServiceInMemory cartItemService = new CartItemServiceInMemory();
-
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, CartItemModel> shoppingCart = (HashMap<String, CartItemModel>) request.getSession().getAttribute("cart");
         String productId = request.getParameter("productId");
         int quantity = Integer.parseInt(request.getParameter("quantity"));

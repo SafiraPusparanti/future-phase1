@@ -45,7 +45,7 @@ public class UserAdd extends HttpServlet {
             UserModel user = new UserModel( userId,
                     request.getParameter("name"),//id, name, email, pass, logtime, role
                     request.getParameter("email"),
-                    request.getParameter("password"),
+                    request.getParameter("password").hashCode() + "",
                     role);
 
             userService.addUser(user);

@@ -15,7 +15,6 @@ public class CashierMenu extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String address = "/view/cashier-menu.jsp";
-
         request.getRequestDispatcher(address).forward(request, response);
     }
 }
