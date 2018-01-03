@@ -17,7 +17,6 @@ public class LedgerMenu extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String address = "/view/admin-ledger.jsp";
 
-        //TODO: check whether user have already logged in as admin
         request.getRequestDispatcher(address).forward(request, response);
     }
 }

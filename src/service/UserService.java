@@ -11,4 +11,5 @@ public interface UserService {
     String getMaxId(boolean role) throws SQLException;
     void addUser(UserModel user) throws SQLException;
     void deleteUser(String userId) throws SQLException;
+    boolean checkUser(UserModel userModel) throws SQLException;
 }

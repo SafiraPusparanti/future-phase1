@@ -24,9 +24,16 @@ public class CashierProductList extends HttpServlet {
 
         try{
             List<ProductModel> products = productService.getCashierProductsByCategory(request.getParameter("categoryId"));
-            response.getWriter().write(new Gson().toJson(products));
+
+            try {
+                response.getWriter().write(new Gson().toJson(products));
+            } catch (IOException e) {
+                System.out.println("Error : " + e.getMessage());
+                e.printStackTrace();
+            }
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

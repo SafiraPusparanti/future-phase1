@@ -166,62 +166,65 @@
                 });
             }
 
-            $("#payment-confirm").on('click', function (e) {
-                e.preventDefault();
+            $("#pay").on("change paste keyup", function() {
                 var currency = $(".total-price-span").html();
                 var price = currency.replace(/\D/g, "");
                 price = price.slice(0, -2);
-                //console.log(price);
                 var pay = $("#pay").val();
+                if (parseFloat(pay) >= parseFloat(price)) {
+                    $("#payment-confirm").attr("disabled", false);
+                }
+            });
 
-                if (parseFloat(pay) > parseFloat(price)) {
+            $("#payment-confirm").on('click', function (e) {
+                e.preventDefault();
+
                     $.post('/cashier/pay',
                         function () {
 
                             notyf.confirm('Payment succeed!');
+                            $("#payment-confirm").attr("disabled", true);
 
                             setTimeout(function () {
                                 cartTable.ajax.reload();
-                                $('#payModal').modal('hide');
+                                $('#change-span').text('');
+                                $('#pay').val('');
                             }, 1000);
 
                             setTimeout(function () {
                                 cartTotalPrice();
-                            }, 2000);
+                            }, 1700);
                         });
 
+                        //remove delete link
+//                        var clone = $("#shopping-cart").clone();
+//                        clone.find(".table-link").remove();
+//                        clone.find("tr").after("<br>");
+//                        clone.find("td").after(" ");
+//                        var divContents = clone.html();
+//                        var userid = $("#userId").html();
+//                        var date = $("#date").html();
+//                        var time = $("#Jakarta_z41c").html();
+//                        var total = $(".total-price-span").html();
+//                        var change = $("#change-span").html();
+//                        var pay = $("#pay").val();
+//                        var printWindow = window.open('', 'Print receipt', 'height=400,width=800');
+//                        printWindow.document.write('<html><head><title>KanMakan Receipt</title></head><body>');
+//                        printWindow.document.write('<h3 align="center"> KanMakan Receipt </h3><br><div style="margin-left: 1cm;">');
+//                        printWindow.document.write(userid + '<br>');
+//                        printWindow.document.write(date + time + '</div><hr>');
+//                        printWindow.document.write('<br><div style="margin-left: 1cm;">' + divContents + '</div><hr>');
+//                        printWindow.document.write('<br><div style="margin-left: 1cm;">Total :&nbsp;&nbsp;&nbsp;' + total);
+//                        printWindow.document.write('<br> Pay :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + pay);
+//                        printWindow.document.write('<br> Change : ' + change);
+//                        printWindow.document.write('</div><br><br><br><br><footer align = "center"> All prices include tax 10%');
+//                        printWindow.document.write('<br> KanMakan Resto');
+//                        printWindow.document.write('<br> cs@kanmakan.com </footer>');
+//                        printWindow.document.write('</body></html>');
+//                        printWindow.document.close();
+//                        printWindow.print();
 
-                    //remove delete link
-                    var clone = $("#shopping-cart").clone();
-                    clone.find(".table-link").remove();
-                    clone.find("tr").after("<br>");
-                    clone.find("td").after(" ");
-                    var divContents = clone.html();
-                    var userid = $("#userId").html();
-                    var date = $("#date").html();
-                    var time = $("#Jakarta_z41c").html();
-                    var total = $(".total-price-span").html();
-                    var change = $("#change-span").html();
-                    var pay = $("#pay").val();
-                    var printWindow = window.open('', 'Print receipt', 'height=400,width=800');
-                    printWindow.document.write('<html><head><title>KanMakan Receipt</title></head><body>');
-                    printWindow.document.write('<h3 align="center"> KanMakan Receipt </h3><br><div style="margin-left: 1cm;">');
-                    printWindow.document.write(userid + '<br>');
-                    printWindow.document.write(date + time + '</div><hr>');
-                    printWindow.document.write('<br><div style="margin-left: 1cm;">' + divContents + '</div><hr>');
-                    printWindow.document.write('<br><div style="margin-left: 1cm;">Total :&nbsp;&nbsp;&nbsp;' + total);
-                    printWindow.document.write('<br> Pay :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + pay);
-                    printWindow.document.write('<br> Change : ' + change);
-                    printWindow.document.write('</div><br><br><br><br><footer align = "center"> All prices include tax 10%');
-                    printWindow.document.write('<br> KanMakan Resto');
-                    printWindow.document.write('<br> cs@kanmakan.com </footer>');
-                    printWindow.document.write('</body></html>');
-                    printWindow.document.close();
-                    printWindow.print();
-                }
-                else {
-                    notyf.alert("Payment Failed: Underpaid.");
-                }
+
             });
 
 
@@ -378,7 +381,7 @@
                 <p><span id="change-span"></span></p>
             </div>
             <div class="modal-footer">
-                <button type="button" id="payment-confirm" class="btn btn-outline-dark">Confirm
+                <button type="button" id="payment-confirm" data-dismiss="modal" class="btn btn-outline-dark" disabled>Confirm
                 </button>
             </div>
         </div>

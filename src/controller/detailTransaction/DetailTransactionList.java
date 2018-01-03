@@ -26,9 +26,15 @@ public class DetailTransactionList extends HttpServlet{
         try{
             List<DetailTransactionModel> detailTransactionList = detailTransactionService.getDetailTransactionList(transactionId);
 
-            response.getWriter().write(new Gson().toJson(detailTransactionList));
+            try {
+                response.getWriter().write(new Gson().toJson(detailTransactionList));
+            } catch (IOException e) {
+                System.out.println("Error : " + e.getMessage());
+                e.printStackTrace();
+            }
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

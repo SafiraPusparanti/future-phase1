@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet("/admin/products/set-image")
 public class ProductEdit extends HttpServlet {
@@ -21,9 +22,9 @@ public class ProductEdit extends HttpServlet {
             productService.setImage(productId, imageUrl);
             response.setStatus(200);
 
-//            request.getRequestDispatcher(address).forward(request,response);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

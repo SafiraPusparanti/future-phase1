@@ -34,6 +34,11 @@ public class CartTotalPrice extends HttpServlet {
         currencyWrapper = String.format("Rp %,.2f", totalPrice);
         totalPriceList.add(currencyWrapper);
 
-        response.getWriter().write(new Gson().toJson(totalPriceList));
+        try {
+            response.getWriter().write(new Gson().toJson(totalPriceList));
+        } catch (IOException e) {
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

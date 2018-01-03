@@ -22,12 +22,17 @@ public class CartItemList extends HttpServlet {
 
         Map<String, CartItemModel> shoppingCart = (HashMap<String, CartItemModel>) request.getSession().getAttribute("cart");
 
-        if(shoppingCart == null){
+        if (shoppingCart == null) {
             shoppingCart = new HashMap<String, CartItemModel>();
             request.getSession().setAttribute("cart", shoppingCart);
         }
 
         List<CartItemModel> cartItemList = new ArrayList<CartItemModel>(shoppingCart.values());
-        response.getWriter().write(new Gson().toJson(cartItemList));
+        try {
+            response.getWriter().write(new Gson().toJson(cartItemList));
+        } catch (IOException e) {
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

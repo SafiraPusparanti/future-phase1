@@ -22,7 +22,7 @@ public class ProductServiceDatabase implements ProductService {
 
     @Override
     public List<ProductModel> getCashierProductsByCategory(String categoryId) throws SQLException {
-        return productDAO.getCashierProductsByCategory(categoryId);
+        return productDAO.getAvailableProductsByCategory(categoryId);
     }
 
     @Override

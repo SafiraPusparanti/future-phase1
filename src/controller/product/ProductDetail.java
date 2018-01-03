@@ -34,9 +34,15 @@ public class ProductDetail extends HttpServlet {
                 products.get(i).setCurrencyWrapper(currencyWrapper);
             }
 
-            response.getWriter().write(new Gson().toJson(products));
+            try {
+                response.getWriter().write(new Gson().toJson(products));
+            } catch (IOException e) {
+                System.out.println("Error : " + e.getMessage());
+                e.printStackTrace();
+            }
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

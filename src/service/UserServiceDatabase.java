@@ -33,4 +33,9 @@ public class UserServiceDatabase implements UserService {
     public void deleteUser(String userId) throws SQLException {
         userDAO.deleteUser(userId);
     }
+
+    @Override
+    public boolean checkUser (UserModel user) throws SQLException {
+        return userDAO.checkUser(user);
+    }
 }

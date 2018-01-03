@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet("/admin/users/delete")
 public class UserDelete extends HttpServlet {
@@ -16,15 +17,13 @@ public class UserDelete extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
         try{
-            System.out.println(request.getParameter("deleteId"));
             userService.deleteUser(request.getParameter("deleteId"));
             response.setStatus(200);
 
-//            request.getRequestDispatcher(address).forward(request,response);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (SQLException e){
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

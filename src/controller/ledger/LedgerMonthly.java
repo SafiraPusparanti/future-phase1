@@ -25,9 +25,15 @@ public class LedgerMonthly extends HttpServlet {
         try{
             List<LedgerModel> monthlyLedger = ledgerService.getMonthlyLedger();
 
-            response.getWriter().write(new Gson().toJson(monthlyLedger));
+            try {
+                response.getWriter().write(new Gson().toJson(monthlyLedger));
+            } catch (IOException e) {
+                System.out.println("Error : " + e.getMessage());
+                e.printStackTrace();
+            }
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

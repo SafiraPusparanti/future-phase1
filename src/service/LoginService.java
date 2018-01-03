@@ -1,6 +1,6 @@
 package service;
 
-import connection.ConnectionDAO;
+import connection.ConnectDB;
 import model.UserModel;
 
 import java.sql.Connection;
@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 
 public class LoginService {
 
-    public static ConnectionDAO connect = new ConnectionDAO();
+    public static ConnectDB connect = new ConnectDB();
     public static final String database = connect.database;
     public static final String url = connect.url;
     public static final String username = connect.username;
@@ -27,7 +27,7 @@ public class LoginService {
         }catch (Exception e){
             e.printStackTrace();
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.out.println("gagal");
+            System.out.println(e.getMessage());
             System.exit(0);
         }
         System.out.println("Open");
@@ -38,7 +38,7 @@ public class LoginService {
             c.close();
             System.out.println("closed");
         }catch (Exception e){
-            System.out.println("Failure on closing db ConnectionDAO : " + e.getMessage());
+            System.out.println("Failure on closing db ConnectDB : " + e.getMessage());
             e.printStackTrace();
         }
     }

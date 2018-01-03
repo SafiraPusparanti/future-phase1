@@ -24,9 +24,16 @@ public class UserList extends HttpServlet {
 
         try{
             List<UserModel> users = userService.getAllUsers();
-            response.getWriter().write(new Gson().toJson(users));
+
+            try {
+                response.getWriter().write(new Gson().toJson(users));
+            } catch (IOException e) {
+                System.out.println("Error : " + e.getMessage());
+                e.printStackTrace();
+            }
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

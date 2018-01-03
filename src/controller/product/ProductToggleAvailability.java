@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet("/admin/products/toggle-status")
 public class ProductToggleAvailability extends HttpServlet {
@@ -17,12 +18,13 @@ public class ProductToggleAvailability extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             System.out.println(request.getParameter("toggleStatusId"));
+            response.setStatus(200);
             productService.toggleStatus(request.getParameter("toggleStatusId"));
             response.setStatus(200);
 
-//            request.getRequestDispatcher(address).forward(request,response);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

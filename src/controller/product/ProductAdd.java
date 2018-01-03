@@ -41,8 +41,9 @@ public class ProductAdd extends HttpServlet {
                     request.getParameter("categoryId"),
                     request.getParameter("imageUrl"));
             productService.addProduct(product);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (SQLException e){
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

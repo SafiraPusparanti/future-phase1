@@ -28,9 +28,15 @@ public class TransactionList extends HttpServlet {
         try{
             List<TransactionModel> transactionList = transactionService.getTransactionList(startDate, endDate);
 
-            response.getWriter().write(new Gson().toJson(transactionList));
+            try {
+                response.getWriter().write(new Gson().toJson(transactionList));
+            } catch (IOException e) {
+                System.out.println("Error : " + e.getMessage());
+                e.printStackTrace();
+            }
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

@@ -25,9 +25,15 @@ public class LedgerYearly extends HttpServlet {
         try{
             List<LedgerModel> yearlyLedger = ledgerService.getYearlyLedger();
 
-            response.getWriter().write(new Gson().toJson(yearlyLedger));
-        } catch (SQLException e){
-            System.out.println(e.getMessage());
+            try {
+                response.getWriter().write(new Gson().toJson(yearlyLedger));
+            } catch (IOException e) {
+                System.out.println("Error : " + e.getMessage());
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

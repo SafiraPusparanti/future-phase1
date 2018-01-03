@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet("/admin/products/delete")
 public class ProductDelete extends HttpServlet {
@@ -20,9 +21,9 @@ public class ProductDelete extends HttpServlet {
             productService.deleteProduct(request.getParameter("deleteId"));
             response.setStatus(200);
 
-//            request.getRequestDispatcher(address).forward(request,response);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

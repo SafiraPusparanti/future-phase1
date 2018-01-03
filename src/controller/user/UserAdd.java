@@ -16,7 +16,6 @@ import java.sql.SQLException;
 public class UserAdd extends HttpServlet {
     UserService userService = new UserServiceDatabase();
 
-    //TODO: create password generator
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String strRole = request.getParameter("role");
@@ -31,7 +30,8 @@ public class UserAdd extends HttpServlet {
             strIdNo = strIdNo.substring(3, 6);
             idNo = Integer.parseInt(strIdNo);
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
 
         String userId;
@@ -49,8 +49,9 @@ public class UserAdd extends HttpServlet {
                     role);
 
             userService.addUser(user);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (SQLException e){
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

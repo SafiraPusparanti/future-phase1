@@ -33,7 +33,8 @@ public class CashierPay extends HttpServlet {
             strIdNo = strIdNo.substring(2, 12);
             idNo = Integer.parseInt(strIdNo);
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
 
         String transactionId = "TR" + String.format("%010d", ++idNo);
@@ -44,8 +45,9 @@ public class CashierPay extends HttpServlet {
                     timestamp,
                     (float) request.getSession().getAttribute("totalPrice"));
             transactionService.addTransaction(transaction);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (SQLException e){
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
 
         for (String key : shoppingCart.keySet()) {
@@ -57,8 +59,9 @@ public class CashierPay extends HttpServlet {
 
             try {
                 detailTransactionService.addDetailTransaction(detailTransaction);
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
+            } catch (SQLException e) {
+                System.out.println("Error : " + e.getMessage());
+                e.printStackTrace();
             }
         }
 

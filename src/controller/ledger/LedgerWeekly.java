@@ -25,9 +25,15 @@ public class LedgerWeekly extends HttpServlet {
         try{
             List<LedgerModel> weeklyLedger = ledgerService.getWeeklyLedger();
 
-            response.getWriter().write(new Gson().toJson(weeklyLedger));
+            try {
+                response.getWriter().write(new Gson().toJson(weeklyLedger));
+            } catch (IOException e) {
+                System.out.println("Error : " + e.getMessage());
+                e.printStackTrace();
+            }
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            System.out.println("Error : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
