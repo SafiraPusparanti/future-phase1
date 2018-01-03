@@ -53,24 +53,22 @@
                 var password = $("#password").val();
                 var role = $("input[name=role]:checked").val();
 
-                $.post('/admin/users/add', {name: name, email: email, password: password, role: role},
-                    function () { // on success --TODO: alert if error occurs
+                $.post('/admin/users/add', {name: name, email: email, password: password, role: role})
+                    .done(function () {
 
                         $('#addedModal').modal('show');
-                        $('#addedModalOk').on('click', function () {
-                            notyf.confirm(name + ' have been added to the record!');
-                        });
-
-                        $("#success-add").fadeTo(2000, 500).slideUp(500, function () {
-                            $("#success-add").slideUp(500);
-                        });
+                        notyf.confirm(name + ' have been added to the record!');
 
                         $("#name").val("");
                         $("#email").val("");
+                        $("#password").val("");
 
                         setTimeout(function () {
                             table.ajax.reload();
                         }, 1000);
+                    })
+                    .fail(function () {
+                        notyf.alert('Add user failed.');
                     });
 
             });
@@ -85,14 +83,17 @@
             $('#submit-delete').on('click', function () {
                 var userId = $("#deleteId").val();
 
-                $.post('/admin/users/delete', {deleteId: userId},
-                    function () {
+                $.post('/admin/users/delete', {deleteId: userId})
+                    .done(function () {
 
                         notyf.confirm(userId + ' have been deleted from the record.');
 
                         setTimeout(function () {
                             table.ajax.reload();
                         }, 1000);
+                    })
+                    .fail(function () {
+                        notyf.alert('Insert user failed.');
                     });
 
             });
@@ -143,7 +144,7 @@
 </style>
 <body>
 
-<%--<%@ include file="/view/session-admin.jsp" %>--%>
+<%@ include file="/view/session-admin.jsp" %>
 <%@ include file="/view/header-admin.jsp" %>
 
 <div class="row">

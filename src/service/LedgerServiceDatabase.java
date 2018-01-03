@@ -11,7 +11,14 @@ public class LedgerServiceDatabase implements LedgerService {
 
     @Override
     public List<LedgerModel> getWeeklyLedger() throws SQLException{
-        List<LedgerModel> weeklyLedger = ledgerDAO.getWeeklyLedger();
+        List<LedgerModel> weeklyLedger = null;
+
+        try {
+            weeklyLedger = ledgerDAO.getWeeklyLedger();
+        } catch (SQLException e) {
+            System.out.println("Failure on selecting data from tables : " + e.getMessage());
+            e.printStackTrace();
+        }
 
         String currencyWrapper = "";
         for(int i = 0; i < weeklyLedger.size(); i++) {
@@ -24,7 +31,14 @@ public class LedgerServiceDatabase implements LedgerService {
 
     @Override
     public List<LedgerModel> getMonthlyLedger() throws SQLException {
-        List<LedgerModel> monthlyLedger =  ledgerDAO.getMonthlyLedger();
+        List<LedgerModel> monthlyLedger = null;
+
+        try {
+            monthlyLedger = ledgerDAO.getMonthlyLedger();
+        } catch (SQLException e) {
+            System.out.println("Failure on selecting data from tables : " + e.getMessage());
+            e.printStackTrace();
+        }
 
         String currencyWrapper = "";
         for(int i = 0; i < monthlyLedger.size(); i++) {
@@ -37,7 +51,14 @@ public class LedgerServiceDatabase implements LedgerService {
 
     @Override
     public List<LedgerModel> getYearlyLedger() throws SQLException {
-        List<LedgerModel> yearlyLedger = ledgerDAO.getYearlyLedger();
+        List<LedgerModel> yearlyLedger = null;
+
+        try {
+            yearlyLedger = ledgerDAO.getYearlyLedger();
+        } catch (SQLException e) {
+            System.out.println("Failure on selecting data from tables : " + e.getMessage());
+            e.printStackTrace();
+        }
 
         String currencyWrapper = "";
         for(int i = 0; i < yearlyLedger.size(); i++) {

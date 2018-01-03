@@ -23,7 +23,7 @@ public class CashierProductList extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         try{
-            List<ProductModel> products = productService.getCashierProductsByCategory(request.getParameter("categoryId"));
+            List<ProductModel> products = productService.getAvailableProductsByCategory(request.getParameter("categoryId"));
 
             try {
                 response.getWriter().write(new Gson().toJson(products));

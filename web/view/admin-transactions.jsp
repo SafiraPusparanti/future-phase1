@@ -55,8 +55,8 @@
                 e.preventDefault();
                 var transactionId = table.row($(this).parents('tr')).data().transactionId;
 
-                $.get('/admin/detail-transactions/list', {transactionId: transactionId},
-                    function (response) { // on success --TODO: alert if error occurs
+                $.get('/admin/detail-transactions/list', {transactionId: transactionId})
+                    .done(function (response) { // on success --TODO: alert if error occurs
                         if(response.length > 0) {
                             var modalContent = "";
                             for (var i = 0; i < response.length; i++) {
@@ -78,7 +78,9 @@
                                 $('#detailModal').modal('show');
                             }, 1000);
                         }
-
+                    })
+                    .fail(function () {
+                        notyf.alert("Retrieve details failed.")
                     });
             });
 

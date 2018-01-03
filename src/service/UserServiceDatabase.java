@@ -11,31 +11,77 @@ public class UserServiceDatabase implements UserService {
 
     @Override
     public List<UserModel> getAllUsers() throws SQLException {
-        return userDAO.getAllUsers();
+        List<UserModel> users = null;
+
+        try {
+            users = userDAO.getAllUsers();
+        } catch (SQLException e) {
+            System.out.println("Failure on selecting data from tables : " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return users;
     }
 
     @Override
     public UserModel getUser(String userId) throws SQLException {
-        return userDAO.getUser(userId);
+        UserModel user = null;
+
+        try {
+            user = userDAO.getUser(userId);
+        } catch (SQLException e) {
+            System.out.println("Failure on selecting data from tables : " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return user;
     }
 
     @Override
     public String getMaxId(boolean role) throws SQLException {
-        return userDAO.getMaxId(role);
+        String maxId = null;
+
+        try {
+            maxId = userDAO.getMaxId(role);
+        } catch (SQLException e) {
+            System.out.println("Failure on selecting data from tables : " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return maxId;
     }
 
     @Override
     public void addUser(UserModel user) throws SQLException {
-        userDAO.addUser(user);
+        try {
+            userDAO.addUser(user);
+        } catch (SQLException e) {
+            System.out.println("Failure on selecting data from tables : " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void deleteUser(String userId) throws SQLException {
-        userDAO.deleteUser(userId);
+        try {
+            userDAO.deleteUser(userId);
+        } catch (SQLException e) {
+            System.out.println("Failure on selecting data from tables : " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @Override
     public boolean checkUser (UserModel user) throws SQLException {
-        return userDAO.checkUser(user);
+        boolean check = false;
+
+        try {
+            check = userDAO.checkUser(user);
+        } catch (SQLException e) {
+            System.out.println("Failure on selecting data from tables : " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return check;
     }
 }

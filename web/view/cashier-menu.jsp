@@ -130,14 +130,17 @@
                             productName: productName,
                             quantity: quantity,
                             price: price
-                        },
-                        function () {
+                        })
+                        .done(function () {
                             notyf.confirm(productId + ' have been added to the cart!');
 
                             setTimeout(function () {
                                 cartTable.ajax.reload();
                                 cartTotalPrice();
                             }, 1000);
+                        })
+                        .fail(function () {
+                            notyf.alert('Fail to insert product to the cart.');
                         });
                 }
             });
@@ -179,8 +182,8 @@
             $("#payment-confirm").on('click', function (e) {
                 e.preventDefault();
 
-                    $.post('/cashier/pay',
-                        function () {
+                    $.post('/cashier/pay')
+                        .done(function () {
 
                             notyf.confirm('Payment succeed!');
                             $("#payment-confirm").attr("disabled", true);
@@ -194,43 +197,44 @@
                             setTimeout(function () {
                                 cartTotalPrice();
                             }, 1700);
+                        })
+                        .fail(function () {
+                            notyf.alert('Fail to make payment.');
                         });
 
                         //remove delete link
-//                        var clone = $("#shopping-cart").clone();
-//                        clone.find(".table-link").remove();
-//                        clone.find("tr").after("<br>");
-//                        clone.find("td").after(" ");
-//                        var divContents = clone.html();
-//                        var userid = $("#userId").html();
-//                        var date = $("#date").html();
-//                        var time = $("#Jakarta_z41c").html();
-//                        var total = $(".total-price-span").html();
-//                        var change = $("#change-span").html();
-//                        var pay = $("#pay").val();
-//                        var printWindow = window.open('', 'Print receipt', 'height=400,width=800');
-//                        printWindow.document.write('<html><head><title>KanMakan Receipt</title></head><body>');
-//                        printWindow.document.write('<h3 align="center"> KanMakan Receipt </h3><br><div style="margin-left: 1cm;">');
-//                        printWindow.document.write(userid + '<br>');
-//                        printWindow.document.write(date + time + '</div><hr>');
-//                        printWindow.document.write('<br><div style="margin-left: 1cm;">' + divContents + '</div><hr>');
-//                        printWindow.document.write('<br><div style="margin-left: 1cm;">Total :&nbsp;&nbsp;&nbsp;' + total);
-//                        printWindow.document.write('<br> Pay :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + pay);
-//                        printWindow.document.write('<br> Change : ' + change);
-//                        printWindow.document.write('</div><br><br><br><br><footer align = "center"> All prices include tax 10%');
-//                        printWindow.document.write('<br> KanMakan Resto');
-//                        printWindow.document.write('<br> cs@kanmakan.com </footer>');
-//                        printWindow.document.write('</body></html>');
-//                        printWindow.document.close();
-//                        printWindow.print();
-
-
+                        var clone = $("#shopping-cart").clone();
+                        clone.find(".table-link").remove();
+                        clone.find("tr").after("<br>");
+                        clone.find("td").after(" ");
+                        var divContents = clone.html();
+                        var userid = $("#userId").html();
+                        var date = $("#date").html();
+                        var time = $("#Jakarta_z41c").html();
+                        var total = $(".total-price-span").html();
+                        var change = $("#change-span").html();
+                        var pay = $("#pay").val();
+                        var printWindow = window.open('', 'Print receipt', 'height=400,width=800');
+                        printWindow.document.write('<html><head><title>KanMakan Receipt</title></head><body>');
+                        printWindow.document.write('<h3 align="center"> KanMakan Receipt </h3><br><div style="margin-left: 1cm;">');
+                        printWindow.document.write(userid + '<br>');
+                        printWindow.document.write(date + time + '</div><hr>');
+                        printWindow.document.write('<br><div style="margin-left: 1cm;">' + divContents + '</div><hr>');
+                        printWindow.document.write('<br><div style="margin-left: 1cm;">Total :&nbsp;&nbsp;&nbsp;' + total);
+                        printWindow.document.write('<br> Pay :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + pay);
+                        printWindow.document.write('<br> Change : ' + change);
+                        printWindow.document.write('</div><br><br><br><br><footer align = "center"> All prices include tax 10%');
+                        printWindow.document.write('<br> KanMakan Resto');
+                        printWindow.document.write('<br> cs@kanmakan.com </footer>');
+                        printWindow.document.write('</body></html>');
+                        printWindow.document.close();
+                        printWindow.print();
             });
 
 
             $("#btn-reset").on('click', function () {
-                $.post('/cart/reset',
-                    function () { // on success --TODO: alert if error occurs
+                $.post('/cart/reset')
+                    .done(function () { // on success --TODO: alert if error occurs
 
                         notyf.confirm('Cart has been successfully cleared!');
 
@@ -241,6 +245,9 @@
                         setTimeout(function () {
                             cartTotalPrice();
                         }, 2000);
+                    })
+                    .fail(function () {
+                        notyf.alert('Fail to reset cart.');
                     });
             });
 
@@ -265,15 +272,18 @@
             $('#shopping-cart').on('click', '.remove', function (e) {
                 e.preventDefault();
                 var productId = table.row($(this).parents('tr')).data().productId;
-                $.post('/cart/delete', {productId: productId},
-                    function () { // on success --TODO: alert if error occurs
+                $.post('/cart/delete', {productId: productId})
+                    .done(function () {
 
-                        notyf.confirm(productId + ' have been deleted from the cart.');
+                        notyf.confirm(productId + ' has been removed from the cart.');
 
                         setTimeout(function () {
                             cartTable.ajax.reload();
                             cartTotalPrice();
                         }, 1000);
+                    })
+                    .fail(function () {
+                        notyf.alert('Fail to remove product from the cart.');
                     });
 
             });

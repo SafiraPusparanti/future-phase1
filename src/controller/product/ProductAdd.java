@@ -32,6 +32,7 @@ public class ProductAdd extends HttpServlet {
         }
 
         String productId = category + String.format("%03d", ++idNo);
+
         float price = Float.parseFloat(request.getParameter("price"));
         try{
             ProductModel product = new ProductModel( productId,

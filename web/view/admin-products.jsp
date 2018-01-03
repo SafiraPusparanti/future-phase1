@@ -129,8 +129,8 @@
                 var productId = table.row('.selected').data().productId;
                 var image = $('#newImage').val();
 
-                $.post('/admin/products/set-image', {productId: productId, imageUrl: image},
-                    function () { // on success --TODO: alert if error occurs
+                $.post('/admin/products/set-image', {productId: productId, imageUrl: image})
+                    .done(function () {
 
                         notyf.confirm(productId + '\'s new image has been set.');
 
@@ -146,6 +146,9 @@
                             var id = table.row(table.$('tr.selected')).data().productId;
                             ajaxDetail(id);
                         },2000);
+                    })
+                    .fail(function () {
+                        notyf.alert("Set image failed.")
                     });
             });
 
@@ -154,9 +157,12 @@
                 var productId = table.row('.selected').data().productId;
                 var status = table.row(table.$('tr.selected')).data().isAvailable;
 
-                $.post('/admin/products/toggle-status', {toggleStatusId: productId},
-                    function () { // on success --TODO: alert if error occurs
+                $.post('/admin/products/toggle-status', {toggleStatusId: productId})
+                    .done(function () { // on success --TODO: alert if error occurs
                         notyf.confirm(productId + '\'s availability have been set ' + !status + '.');
+                    })
+                    .fail(function () {
+                        notyf.alert("Toggle status failed.");
                     });
 
                 setTimeout(function () {
@@ -170,8 +176,8 @@
             $('#submit-delete').on('click', function () {
                 var productId = table.row('.selected').data().productId;
 
-                $.post('/admin/products/delete', {deleteId: productId},
-                    function () { // on success --TODO: alert if error occurs
+                $.post('/admin/products/delete', {deleteId: productId})
+                    .done(function () { // on success --TODO: alert if error occurs
 
                         notyf.confirm(productId + ' have been deleted from the record.');
 
@@ -179,6 +185,9 @@
                             $('#show-detail').fadeOut();
                             table.ajax.reload();
                         }, 1000);
+                    })
+                    .fail(function () {
+                        notyf.alert('Delete product failed.');
                     });
             });
 
@@ -190,8 +199,8 @@
                 var image = $("#image").val();
                 var category = $("#category").val();
 
-                $.post('/admin/products/add', {name: name, price: price, imageUrl: image, categoryId: category},
-                    function () { // on success --TODO: alert if error occurs
+                $.post('/admin/products/add', {name: name, price: price, imageUrl: image, categoryId: category})
+                    .done(function() { // on success --TODO: alert if error occurs
 
                         $('#addedModal').modal('show');
                         $('#addedModalOk').on('click', function () {
@@ -229,6 +238,9 @@
                             ajaxDetail(id);
                             $('#show-detail').fadeIn();
                         },2000);
+                    })
+                    .fail(function () {
+                        notyf.alert('Insert product failed.');
                     });
             });
 

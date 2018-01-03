@@ -11,12 +11,24 @@ public class DetailTransactionServiceDatabase implements DetailTransactionServic
 
     @Override
     public void addDetailTransaction(DetailTransactionModel detailTransaction) throws SQLException {
-        detailTransactionDAO.addDetailTransaction(detailTransaction);
+        try {
+            detailTransactionDAO.addDetailTransaction(detailTransaction);
+        } catch (SQLException e) {
+            System.out.println("Failure on selecting data from tables : " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @Override
     public List<DetailTransactionModel> getDetailTransactionList(String transactionId) throws SQLException {
-        List<DetailTransactionModel> detailTransactionList = detailTransactionDAO.getDetailTransactionList(transactionId);
+        List<DetailTransactionModel> detailTransactionList = null;
+
+        try {
+            detailTransactionList = detailTransactionDAO.getDetailTransactionList(transactionId);
+        } catch (SQLException e) {
+            System.out.println("Failure on selecting data from tables : " + e.getMessage());
+            e.printStackTrace();
+        }
 
         String currencyWrapper = "";
         for(int i = 0; i < detailTransactionList.size(); i++) {

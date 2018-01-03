@@ -16,11 +16,10 @@ public class LedgerDAO {
 
     public List<LedgerModel> getWeeklyLedger() throws SQLException {
         Connection conn = connDB.getConnection();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
+        PreparedStatement ps;
+        ResultSet rs;
         List<LedgerModel> weeklyLedger = new ArrayList<LedgerModel>();
 
-        try {
             ps = conn.prepareStatement("SELECT SUM(total_price) AS weekly_income, " +
                     "(DATE_TRUNC('week', time_trans) + '6 days'::interval)::DATE AS weekly_date, " +
                     "TO_CHAR((DATE_TRUNC('week', time_trans) + '6 days'::interval)::DATE, 'Mon dd, yyyy') AS ledger_name, " +
@@ -34,26 +33,19 @@ public class LedgerDAO {
                 weeklyLedger.add(new LedgerModel(rs.getFloat(1), rs.getString(3), rs.getString(4), rs.getString(2)));
             }
 
-        } catch (SQLException e) {
-            System.out.println("Failure on selecting data from tables : " + e.getMessage());
-            e.printStackTrace();
-
-        } finally {
             rs.close();
             ps.close();
             conn.close();
 
             return weeklyLedger;
-        }
     }
 
     public List<LedgerModel> getMonthlyLedger() throws SQLException {
         Connection conn = connDB.getConnection();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
+        PreparedStatement ps;
+        ResultSet rs;
         List<LedgerModel> monthlyLedger = new ArrayList<LedgerModel>();
 
-        try {
             ps = conn.prepareStatement("SELECT SUM(total_price) AS monthly_income, " +
                     "DATE_TRUNC('month', time_trans)::DATE AS monthly_date, " +
                     "TO_CHAR(time_trans, 'Month yyyy') AS ledger_name, " +
@@ -67,26 +59,19 @@ public class LedgerDAO {
                 monthlyLedger.add(new LedgerModel(rs.getFloat(1), rs.getString(3), rs.getString(2), rs.getString(4)));
             }
 
-        } catch (SQLException e) {
-            System.out.println("Failure on selecting data from tables : " + e.getMessage());
-            e.printStackTrace();
-
-        } finally {
             rs.close();
             ps.close();
             conn.close();
 
             return monthlyLedger;
-        }
     }
 
     public List<LedgerModel> getYearlyLedger() throws SQLException {
         Connection conn = connDB.getConnection();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
+        PreparedStatement ps;
+        ResultSet rs;
         List<LedgerModel> yearlyLedger = new ArrayList<LedgerModel>();
 
-        try {
             ps = conn.prepareStatement("SELECT SUM(total_price) AS yearly_income, " +
                     "DATE_TRUNC('year', time_trans)::DATE AS yearly_date, " +
                     "TO_CHAR(time_trans, 'yyyy') AS ledger_name, " +
@@ -100,16 +85,10 @@ public class LedgerDAO {
                 yearlyLedger.add(new LedgerModel(rs.getFloat(1), rs.getString(3), rs.getString(2), rs.getString(4)));
             }
 
-        } catch (SQLException e) {
-            System.out.println("Failure on selecting data from tables : " + e.getMessage());
-            e.printStackTrace();
-
-        } finally {
             rs.close();
             ps.close();
             conn.close();
 
             return yearlyLedger;
-        }
     }
 }

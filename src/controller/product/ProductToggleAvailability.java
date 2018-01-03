@@ -17,10 +17,7 @@ public class ProductToggleAvailability extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            System.out.println(request.getParameter("toggleStatusId"));
-            response.setStatus(200);
             productService.toggleStatus(request.getParameter("toggleStatusId"));
-            response.setStatus(200);
 
         } catch (SQLException e) {
             System.out.println("Error : " + e.getMessage());
